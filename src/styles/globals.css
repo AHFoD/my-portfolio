@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-gray-900;
+  }
+
+  p {
+    @apply text-gray-600;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white px-8 py-4 rounded-lg font-medium 
+           transition-all hover:bg-primary-dark hover:scale-[1.02];
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-primary border-2 border-primary px-8 py-4 
+           rounded-lg font-medium transition-all hover:bg-primary/5;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32;
+  }
+
+  .minimal-card {
+    @apply bg-white p-8 rounded-xl border border-gray-200 hover:border-primary/20 transition-all duration-300 shadow-sm;
+  }
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/30;
+}
+
+@layer utilities {
+  .clip-triangle {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  }
+}
