@@ -76,63 +76,14 @@ const Hero = () => {
   ];
   
   return (
-    <section ref={containerRef} className="min-h-screen bg-white flex items-center relative overflow-hidden">
-      {/* Add decorative circles */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 border border-primary/10 rounded-full" />
-        <div className="absolute bottom-1/4 left-1/4 w-48 h-48 border border-primary/10 rounded-full" />
-        <div className="absolute top-1/3 left-1/3 w-32 h-32 border border-primary/10 rounded-full" />
-      </div>
-
-      {/* Add animated lines */}
-      <div className="absolute inset-0 -z-10">
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
-          className="absolute top-1/3 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/10 to-transparent"
-        />
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1.5, delay: 0.3, ease: "easeInOut" }}
-          className="absolute top-2/3 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/10 to-transparent"
-        />
-      </div>
-
-      {/* Enhanced floating elements */}
-      {floatingElements.map((el, index) => (
-        <motion.div
-          key={index}
-          className={`absolute ${el.size} ${
-            el.type === 'square' ? 'rounded-lg border-2 border-primary/20' :
-            el.type === 'triangle' ? 'clip-triangle border-2 border-primary/20' :
-            'rounded-full bg-primary/10'
-          }`}
-          initial={{ x: el.x, y: el.y, opacity: 0, rotate: 0 }}
-          animate={{ 
-            opacity: [0, 0.5, 0],
-            y: [el.y, `calc(${el.y} - 40px)`, el.y],
-            rotate: [0, 180, 360],
-            scale: [1, 1.2, 1]
-          }}
-          transition={{
-            duration: 6,
-            delay: el.delay,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          style={{ left: el.x, top: el.y }}
-        />
-      ))}
-
+    <section ref={containerRef} className="min-h-screen bg-white flex items-center relative overflow-hidden px-4 md:px-0">
       {/* Main content with parallax effect */}
-      <motion.div style={{ y, opacity }} className="container-custom text-center relative z-10">
+      <motion.div style={{ y, opacity }} className="container-custom text-center relative z-10 py-20 md:py-0">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-6xl md:text-7xl font-bold mb-6"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
         >
           <span className="text-gray-900">Full Stack Developer</span>
           <br />
@@ -150,7 +101,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-gray-600 text-xl mb-12 max-w-3xl mx-auto"
+          className="text-lg md:text-xl mb-8 md:mb-12 max-w-3xl mx-auto text-gray-600"
         >
           Turning ideas into scalable, user-friendly web applications using React,
           Vite, and Supabase.
@@ -160,24 +111,24 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <a href="#portfolio" className="btn-primary">
+          <a href="#portfolio" className="btn-primary w-full sm:w-auto">
             View My Work
           </a>
-          <a href="#contact" className="btn-secondary">
+          <a href="#contact" className="btn-secondary w-full sm:w-auto">
             Contact Me
           </a>
         </motion.div>
 
         {/* Tech stack section */}
         <motion.div 
-          className="mt-20 relative"
+          className="mt-12 md:mt-20 relative"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
         >
-          <div className="flex justify-center items-center gap-12 flex-wrap">
+          <div className="grid grid-cols-3 md:flex md:flex-row justify-center items-center gap-6 md:gap-12 flex-wrap">
             {techStack.map((tech, index) => (
               <motion.div
                 key={tech.name}
@@ -188,7 +139,9 @@ const Hero = () => {
                 className="flex flex-col items-center group"
               >
                 <div className="relative">
-                  {tech.icon}
+                  <div className="h-8 w-8 md:h-12 md:w-12">
+                    {tech.icon}
+                  </div>
                   <motion.div
                     className="absolute inset-0 bg-primary/5 rounded-full -z-10"
                     initial={{ scale: 0 }}
@@ -196,36 +149,13 @@ const Hero = () => {
                     transition={{ duration: 0.3 }}
                   />
                 </div>
-                <span className="text-sm text-gray-600 mt-2 group-hover:text-primary transition-colors">
+                <span className="text-xs md:text-sm text-gray-600 mt-2 group-hover:text-primary transition-colors">
                   {tech.name}
                 </span>
               </motion.div>
             ))}
           </div>
         </motion.div>
-
-        {/* Tech badges */}
-        <div className="absolute -left-4 top-1/4 transform -rotate-12">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="px-4 py-2 bg-primary/5 rounded-lg border border-primary/20"
-          >
-            <span className="text-sm text-gray-600">React Expert</span>
-          </motion.div>
-        </div>
-
-        <div className="absolute -right-4 bottom-1/4 transform rotate-12">
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
-            className="px-4 py-2 bg-primary/5 rounded-lg border border-primary/20"
-          >
-            <span className="text-sm text-gray-600">Full Stack Dev</span>
-          </motion.div>
-        </div>
       </motion.div>
     </section>
   );
