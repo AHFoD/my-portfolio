@@ -155,14 +155,7 @@ const Contact = () => {
             </div>
           )}
           
-          {/* Debug info */}
-          {process.env.NODE_ENV === 'development' && (
-            <div className="p-2 bg-gray-100 text-gray-700 text-xs rounded border">
-              <p>Debug: Form submitting: {state.submitting ? 'Yes' : 'No'}</p>
-              <p>Debug: Form succeeded: {state.succeeded ? 'Yes' : 'No'}</p>
-              <p>Debug: Errors: {state.errors?.length || 0}</p>
-            </div>
-          )}
+           
           
           <Button type="submit" primary fullWidth disabled={state.submitting}>
             {state.submitting ? "Sending..." : "Send Message"}
