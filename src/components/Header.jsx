@@ -11,14 +11,25 @@ const Header = () => {
       
       // Update active section based on scroll position
       const sections = document.querySelectorAll('section[id]');
+      let currentSection = 'home';
+      
       sections.forEach(section => {
         const sectionTop = section.offsetTop - 100;
-        if (window.scrollY >= sectionTop) {
-          setActiveSection(section.id);
+        const sectionHeight = section.offsetHeight;
+        const scrollY = window.scrollY;
+
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          currentSection = section.id;
         }
       });
+
+      setActiveSection(currentSection);
     };
+
     window.addEventListener("scroll", handleScroll);
+    // Trigger initial check
+    handleScroll();
+    
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
