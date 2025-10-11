@@ -1,6 +1,7 @@
 // src/components/About.jsx
 import { motion } from "framer-motion";
 import Section from "./ui/Section";
+import profileImage from "../assets/my-profile-picture.jpg";
 
 const About = () => {
   const skills = [
@@ -14,26 +15,26 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <div className="relative">
-            <div className="w-full h-64 md:h-80 bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+          <div className="relative flex justify-center items-center">
+            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-white">
               <img 
-                src="/images/profile-photo.jpg" 
-                alt="Profile" 
-                className="w-full h-full object-cover"
+                src={profileImage} 
+                alt="Muhd Ali Zulfaqar - Full Stack Developer" 
+                className="w-full h-full object-cover object-center scale-105"
               />
             </div>
-            <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 w-24 h-24 md:w-32 md:h-32 bg-primary/20 rounded-lg"></div>
+            <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 w-24 h-24 md:w-32 md:h-32 bg-primary/20 rounded-full"></div>
           </div>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           className="text-center md:text-left"
         >
           <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">Full Stack Developer</h3>
@@ -47,13 +48,18 @@ const About = () => {
             <h4 className="text-lg font-semibold mb-3 text-gray-800">Skills</h4>
             <div className="flex flex-wrap justify-center md:justify-start gap-2">
               {skills.map((skill, index) => (
-                <span 
+                <motion.span 
                   key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: false }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  whileHover={{ scale: 1.1, y: -2 }}
                   className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm
-                           hover:bg-gray-200 transition-colors"
+                           hover:bg-primary hover:text-white transition-colors cursor-pointer"
                 >
                   {skill}
-                </span>
+                </motion.span>
               ))}
             </div>
           </div>

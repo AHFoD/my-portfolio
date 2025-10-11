@@ -76,7 +76,33 @@ const Hero = () => {
   ];
   
   return (
-    <section ref={containerRef} className="min-h-screen bg-white flex items-center relative overflow-hidden px-4 md:px-0">
+    <section ref={containerRef} className="min-h-screen bg-gradient-to-br from-white via-primary/5 to-white flex items-center relative overflow-hidden px-4 md:px-0">
+      {/* Animated background shapes */}
+      <motion.div
+        animate={{
+          scale: [1, 1.2, 1],
+          rotate: [0, 90, 0],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+        className="absolute top-20 right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl"
+      />
+      <motion.div
+        animate={{
+          scale: [1, 1.3, 1],
+          rotate: [0, -90, 0],
+        }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+        className="absolute bottom-20 left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+      />
+      
       {/* Main content with parallax effect */}
       <motion.div style={{ y, opacity }} className="container-custom text-center relative z-10 py-20 md:py-0">
         <motion.h1 
@@ -155,6 +181,31 @@ const Hero = () => {
               </motion.div>
             ))}
           </div>
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.5 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        >
+          <a href="#about" className="flex flex-col items-center group">
+            <span className="text-sm text-gray-500 mb-2 group-hover:text-primary transition-colors">
+              Scroll Down
+            </span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center group-hover:border-primary transition-colors"
+            >
+              <motion.div
+                animate={{ y: [0, 12, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 group-hover:bg-primary transition-colors"
+              />
+            </motion.div>
+          </a>
         </motion.div>
       </motion.div>
     </section>

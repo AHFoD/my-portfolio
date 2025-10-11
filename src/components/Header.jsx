@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,12 +47,15 @@ const Header = () => {
     >
       <nav className="container-custom flex items-center justify-between">
         <motion.a 
-          href="#"
+          href="#home"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="text-2xl font-bold text-gray-900 relative group"
         >
-          <span className="relative z-10">Portfolio</span>
+          <span className="relative z-10">
+            <span className="text-primary">Ali</span>
+            <span className="text-gray-900">.dev</span>
+          </span>
           <motion.div
             className="absolute -inset-1 bg-primary/10 rounded-lg -z-0"
             initial={{ scale: 0 }}
@@ -61,7 +65,7 @@ const Header = () => {
         </motion.a>
 
         <ul className="hidden md:flex items-center space-x-8">
-          {["Home", "About", "Services", "Portfolio", "Process", "Contact"].map((item) => (
+          {["Home", "About", "Services", "Portfolio", "Contact"].map((item) => (
             <motion.li
               key={item}
               whileHover={{ scale: 1.05 }}
@@ -94,22 +98,41 @@ const Header = () => {
           className="md:hidden relative group p-2"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
         >
           <div className="text-gray-600 group-hover:text-primary transition-colors">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
+            {isMobileMenuOpen ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            )}
           </div>
           <motion.div
             className="absolute inset-0 bg-primary/10 rounded-lg -z-10"
@@ -119,6 +142,50 @@ const Header = () => {
           />
         </motion.button>
       </nav>
+
+      {/* Mobile Menu Drawer */}
+      <motion.div
+        initial={false}
+        animate={isMobileMenuOpen ? { x: 0 } : { x: "100%" }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        className="fixed top-0 right-0 bottom-0 w-64 bg-white shadow-2xl z-40 md:hidden"
+      >
+        <div className="flex flex-col h-full pt-20 px-6">
+          <ul className="space-y-6">
+            {["Home", "About", "Services", "Portfolio", "Contact"].map((item) => (
+              <motion.li
+                key={item}
+                initial={{ opacity: 0, x: 20 }}
+                animate={isMobileMenuOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+                transition={{ delay: 0.1 * ["Home", "About", "Services", "Portfolio", "Contact"].indexOf(item) }}
+              >
+                <a
+                  href={`#${item.toLowerCase()}`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`block text-lg font-medium transition-colors ${
+                    activeSection === item.toLowerCase()
+                      ? "text-primary"
+                      : "text-gray-600 hover:text-primary"
+                  }`}
+                >
+                  {item}
+                </a>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
+      </motion.div>
+
+      {/* Overlay */}
+      {isMobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="fixed inset-0 bg-black/50 z-30 md:hidden"
+        />
+      )}
     </motion.header>
   );
 };

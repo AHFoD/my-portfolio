@@ -7,13 +7,8 @@ import Button from "./ui/Button";
 const Contact = () => {
   const [state, handleSubmit] = useForm("xandjynp");
 
-  // Debug logging for form state
-  console.log('Form state:', state);
-  
   const onSubmit = async (e) => {
-    console.log('Form submission started');
     const result = await handleSubmit(e);
-    console.log('Form submission result:', result);
     
     // Clear form fields on successful submission
     if (result && !result.errors) {
@@ -49,10 +44,10 @@ const Contact = () => {
             <p className="mb-2 font-medium text-gray-800">Or reach out directly:</p>
             <p className="text-gray-700">Email: muhdalizulfaqar@gmail.com</p>
             <div className="flex justify-center gap-4 mt-4">
-              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-dark font-medium">
+              <a href="https://linkedin.com/in/muhdalizulfaqar" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-dark font-medium transition-colors">
                 LinkedIn
               </a>
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-dark font-medium">
+              <a href="https://github.com/rekaali" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-dark font-medium transition-colors">
                 GitHub
               </a>
             </div>
@@ -166,10 +161,10 @@ const Contact = () => {
           <p className="mb-2 font-medium text-gray-800">Or reach out directly:</p>
           <p className="text-gray-700">Email: muhdalizulfaqar@gmail.com</p>
           <div className="flex justify-center gap-4 mt-4">
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-dark font-medium transition-colors">
+            <a href="https://linkedin.com/in/muhdalizulfaqar" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-dark font-medium transition-colors">
               LinkedIn
             </a>
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-dark font-medium transition-colors">
+            <a href="https://github.com/rekaali" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-dark font-medium transition-colors">
               GitHub
             </a>
           </div>

@@ -44,10 +44,15 @@ const Process = () => {
             key={index}
             className="bg-white p-8 rounded-xl shadow-sm relative overflow-hidden 
                        border border-gray-100 hover:border-primary/20 group"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: false, margin: "-50px" }}
+            transition={{ 
+              duration: 0.5, 
+              delay: index * 0.15,
+              ease: "easeOut"
+            }}
+            whileHover={{ y: -8, scale: 1.03 }}
           >
             <div className="absolute -top-4 -left-4 bg-primary/10 text-primary w-20 h-20 
                           flex items-center justify-center text-2xl font-bold rounded-br-[2.5rem]
