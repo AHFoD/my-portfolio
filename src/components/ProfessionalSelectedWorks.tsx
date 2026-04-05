@@ -51,16 +51,16 @@ const ProfessionalSelectedWorks = (): ReactElement => {
   return (
     <section id="portfolio" className="section-padding bg-background">
       <div className="container-custom">
-        <div className="flex items-center gap-4 mb-14 md:mb-20">
+        <div className="flex items-center gap-4 mb-10 md:mb-14">
           <h2 className="type-display-section">Selected Works</h2>
           <div className="hidden sm:block flex-1 h-px bg-border-subtle" />
         </div>
-        <div className="space-y-20 md:space-y-28">
+        <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-8 md:gap-16 pb-8 w-full items-center">
           {selectedWorks.map((project: WorkProject, index: number) => {
             const metrics: readonly WorkMetric[] = project.metrics ?? [];
             const isReversed: boolean = index % 2 === 1;
             return (
-              <div key={project.title} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              <div key={project.title} className="w-full min-w-full shrink-0 snap-center grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 <motion.div
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}

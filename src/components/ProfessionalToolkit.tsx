@@ -84,7 +84,7 @@ const ProfessionalToolkit = (): ReactElement => {
   return (
     <section id="toolkit" className="section-padding bg-surface-container-low">
       <div className="container-custom">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-14 md:mb-20">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-10 md:mb-14">
           <div>
             <h2 className="type-display-section mb-4">Digital Toolkit</h2>
             <p className="text-muted text-base sm:text-lg">My architectural foundation for scalable engineering.</p>
@@ -95,7 +95,7 @@ const ProfessionalToolkit = (): ReactElement => {
             </span>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+        <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-5 md:gap-6 pb-4 w-full">
           {toolkitItems.map((item: ToolkitItem, index: number) => (
             <motion.div
               key={item.title}
@@ -104,7 +104,7 @@ const ProfessionalToolkit = (): ReactElement => {
               viewport={{ once: false, margin: "-80px" }}
               transition={{ duration: 0.45, delay: index * 0.06 }}
               whileHover={{ y: -6 }}
-              className="bg-surface rounded-xl border border-border-subtle shadow-ring hover:shadow-floating transition-[box-shadow,transform] p-8"
+              className="min-w-[85vw] sm:min-w-[45vw] lg:min-w-[22vw] snap-start shrink-0 bg-surface p-6 sm:p-8 rounded-xl shadow-ring relative overflow-hidden border border-border-subtle"
             >
               <div
                 className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-7 ${

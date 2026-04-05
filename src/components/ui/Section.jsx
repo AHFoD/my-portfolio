@@ -10,7 +10,7 @@ const Section = ({ id, title, children, className = "" }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="type-display-section mb-12 text-center relative"
+            className="type-display-section mb-8 text-center relative"
           >
             <span className="relative z-10">{title}</span>
             <motion.div

@@ -63,13 +63,13 @@ const Contact = () => {
   return (
     <Section id="contact" title={contactCopy.title}>
       <div className="max-w-3xl mx-auto">
-        <p className="text-center mb-10">
+        <p className="text-center mb-6">
           {contactCopy.description}
         </p>
         
         <motion.form 
           onSubmit={onSubmit}
-          className="space-y-6"
+          className="space-y-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

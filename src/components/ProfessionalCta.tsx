@@ -24,12 +24,12 @@ const ProfessionalCta = (): ReactElement => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="rounded-2xl p-10 sm:p-14 md:p-16 text-center shadow-floating relative overflow-hidden bg-surface border border-border"
+          className="rounded-2xl p-8 sm:p-12 text-center shadow-floating relative overflow-hidden bg-surface border border-border"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-          <h2 className="type-display-hero text-foreground mb-7 relative z-10">{professionalCtaCopy.headline}</h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted mb-10 max-w-2xl mx-auto relative z-10">
+          <h2 className="type-display-hero text-foreground mb-5 relative z-10">{professionalCtaCopy.headline}</h2>
+          <p className="text-base sm:text-lg md:text-xl text-muted mb-8 max-w-2xl mx-auto relative z-10">
             {professionalCtaCopy.description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center relative z-10">

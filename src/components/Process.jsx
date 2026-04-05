@@ -9,11 +9,11 @@ const Process = () => {
 
   return (
     <Section id="process" title={processCopy.title} className="bg-background-subtle">
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 pb-6 w-full">
         {processCopy.steps.map((step, index) => (
           <motion.div
             key={index}
-            className="bg-surface p-8 rounded-lg shadow-ring relative overflow-hidden border border-border-subtle hover:shadow-floating group"
+            className="min-w-[85vw] sm:min-w-[45vw] lg:min-w-[30vw] snap-start shrink-0 relative bg-surface border border-border-subtle p-6 sm:p-8 rounded-xl shadow-ring group hover:border-border transition-colors"
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: false, margin: "-50px" }}
