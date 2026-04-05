@@ -1,49 +1,19 @@
-// src/components/Process.jsx
 import { motion } from "framer-motion";
 import Section from "./ui/Section";
+import personaConfig from "../persona/persona-config";
+import { usePersona } from "../persona/persona-state";
 
 const Process = () => {
-  const steps = [
-    {
-      number: "01",
-      title: "Discovery",
-      description: "I start by understanding your requirements, goals, and vision for the project."
-    },
-    {
-      number: "02",
-      title: "Planning",
-      description: "Creating a detailed plan including architecture, technologies, and project timeline."
-    },
-    {
-      number: "03",
-      title: "Design",
-      description: "Designing user interfaces and experiences that are both beautiful and functional."
-    },
-    {
-      number: "04",
-      title: "Development",
-      description: "Building the application with clean, maintainable code following best practices."
-    },
-    {
-      number: "05",
-      title: "Testing",
-      description: "Thoroughly testing the application to ensure it works flawlessly across all devices."
-    },
-    {
-      number: "06",
-      title: "Deployment",
-      description: "Deploying the application to production and ensuring everything runs smoothly."
-    }
-  ];
+  const { persona } = usePersona();
+  const processCopy = personaConfig[persona].process;
 
   return (
-    <Section id="process" title="My Process" className="bg-gray-50">
+    <Section id="process" title={processCopy.title} className="bg-background-subtle">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {steps.map((step, index) => (
+        {processCopy.steps.map((step, index) => (
           <motion.div
             key={index}
-            className="bg-white p-8 rounded-xl shadow-sm relative overflow-hidden 
-                       border border-gray-100 hover:border-primary/20 group"
+            className="bg-surface p-8 rounded-lg shadow-ring relative overflow-hidden border border-border-subtle hover:shadow-floating group"
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: false, margin: "-50px" }}
@@ -54,14 +24,12 @@ const Process = () => {
             }}
             whileHover={{ y: -8, scale: 1.03 }}
           >
-            <div className="absolute -top-4 -left-4 bg-primary/10 text-primary w-20 h-20 
-                          flex items-center justify-center text-2xl font-bold rounded-br-[2.5rem]
-                          group-hover:bg-primary/20 transition-colors">
+            <div className="absolute -top-4 -left-4 bg-blue-glow text-primary w-20 h-20 flex items-center justify-center text-2xl font-bold group-hover:bg-primary/20 transition-colors" style={{ borderBottomRightRadius: 'var(--fr-radius-2xl)' }}>
               {step.number}
             </div>
             <div className="ml-12 pt-2">
-              <h3 className="text-xl font-bold mb-3 text-gray-900">{step.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{step.description}</p>
+              <h3 className="text-xl font-bold mb-3 text-foreground">{step.title}</h3>
+              <p className="text-muted leading-relaxed">{step.description}</p>
             </div>
           </motion.div>
         ))}

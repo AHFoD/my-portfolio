@@ -1,0 +1,306 @@
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Tactile Canvas | Full-Stack Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffc4b1",
+                    "primary-fixed": "#ae8dff",
+                    "on-primary-fixed": "#000000",
+                    "error-dim": "#a70138",
+                    "background": "#f7f6f5",
+                    "secondary-dim": "#902e02",
+                    "surface-container-low": "#f1f1f0",
+                    "on-secondary-container": "#832800",
+                    "outline": "#767776",
+                    "primary-fixed-dim": "#a27cff",
+                    "secondary-container": "#ffc4b1",
+                    "inverse-on-surface": "#9d9d9c",
+                    "tertiary-container": "#fd9e78",
+                    "on-primary-container": "#2b006e",
+                    "tertiary-fixed": "#fd9e78",
+                    "on-background": "#2e2f2f",
+                    "inverse-primary": "#a078ff",
+                    "on-primary": "#f8f0ff",
+                    "surface-dim": "#d4d4d4",
+                    "on-surface": "#2e2f2f",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#510017",
+                    "surface-variant": "#dcdddc",
+                    "secondary": "#a03a0f",
+                    "on-surface-variant": "#5b5c5b",
+                    "on-primary-fixed-variant": "#370086",
+                    "surface-container-high": "#e2e2e1",
+                    "on-tertiary-fixed-variant": "#6a2a0d",
+                    "on-tertiary-fixed": "#3b1000",
+                    "surface": "#f7f6f5",
+                    "surface-container-highest": "#dcdddc",
+                    "surface-bright": "#f7f6f5",
+                    "tertiary-dim": "#813b1d",
+                    "on-tertiary-container": "#5e2105",
+                    "on-secondary-fixed": "#621c00",
+                    "surface-container": "#e8e8e7",
+                    "primary-dim": "#5e26c7",
+                    "outline-variant": "#adadac",
+                    "on-tertiary": "#ffefeb",
+                    "on-secondary": "#ffefeb",
+                    "on-error": "#ffefef",
+                    "error": "#b41340",
+                    "primary": "#6a37d4",
+                    "tertiary-fixed-dim": "#ed916c",
+                    "surface-tint": "#6a37d4",
+                    "primary-container": "#ae8dff",
+                    "secondary-fixed-dim": "#ffb196",
+                    "inverse-surface": "#0d0e0e",
+                    "on-secondary-fixed-variant": "#922f03",
+                    "tertiary": "#904728",
+                    "error-container": "#f74b6d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f7f6f5; color: #2e2f2f; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .primary-gradient { background: linear-gradient(135deg, #6a37d4 0%, #ae8dff 100%); }
+    </style>
+</head>
+<body class="bg-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 rounded-b-3xl bg-[#f7f6f5]/70 dark:bg-zinc-900/70 backdrop-blur-xl shadow-[0px_10px_40px_rgba(46,47,47,0.05)]">
+<div class="flex justify-between items-center px-6 md:px-12 py-6 max-w-screen-2xl mx-auto">
+<div class="text-xl font-bold text-zinc-800 dark:text-zinc-100 font-headline tracking-tight">The Tactile Canvas</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-violet-600 dark:text-violet-400 font-bold border-b-2 border-violet-500 font-['Plus_Jakarta_Sans'] tracking-tight" href="#">Projects</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-violet-500 transition-colors duration-300 font-['Plus_Jakarta_Sans'] tracking-tight" href="#">Process</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-violet-500 transition-colors duration-300 font-['Plus_Jakarta_Sans'] tracking-tight" href="#">About</a>
+</div>
+<button class="primary-gradient text-on-primary px-8 py-3 rounded-full font-bold transition-transform active:scale-95 duration-200 ease-in-out shadow-lg">
+                Say Hello
+            </button>
+</div>
+</nav>
+<main class="pt-32 pb-20">
+<!-- Hero Section -->
+<section class="px-6 md:px-12 max-w-screen-2xl mx-auto mb-32">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7">
+<span class="text-primary font-bold tracking-widest text-sm uppercase mb-6 block">FULL-STACK DEVELOPER &amp; ARCHITECT</span>
+<h1 class="text-5xl md:text-7xl font-extrabold text-on-background leading-[1.1] tracking-tight mb-8">
+                        Building digital products with <span class="text-primary">technical precision</span> and <span class="text-secondary">design soul</span>.
+                    </h1>
+<p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed mb-10">
+                        I bridge the gap between complex backend architectures and intuitive, high-end user experiences. Creating the "Human Algorithm" through clean code and tactile aesthetics.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-secondary-container text-on-secondary-container px-10 py-4 rounded-xl font-bold text-lg hover:brightness-95 transition-all">View Works</button>
+<button class="text-primary font-bold px-10 py-4 rounded-xl flex items-center gap-2 group">
+                            Technical Resume 
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="aspect-square bg-surface-container-low rounded-xl overflow-hidden shadow-2xl relative group">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Modern workspace with high-end laptop, soft studio lighting, and organic wooden textures in a clean minimalist aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH_PQGS74FvRLRjOcqaStFxBau2vtYSFjiojSLJznPrfsAyxmo74iHPNQBPx2TgTITXatKoDzs8R0XV7EToFv-7Yqzd7bfi_bhDP_4yGqepqngpNA_iRuGnssx3IrYnYdJTcVe7ElVwr6QlSGN8j89eNIXkOAx4rkXTMS7k2e3Co8kTxTkqnzLOxTfqo1tZNd8AHemjpuaB_cbZZ2uR0nNJQtZD4jw86BThWvg4mSMoXM6AnbeVqPuT7rMV0ZIS2PZ9gYp6_m6qKio"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-multiply transition-opacity group-hover:opacity-0"></div>
+</div>
+<!-- Aesthetic Offset Shape -->
+<div class="absolute -bottom-6 -left-6 w-48 h-48 bg-secondary-container/30 rounded-xl -z-10"></div>
+</div>
+</div>
+</section>
+<!-- Digital Toolkit Section -->
+<section class="bg-surface-container-low py-32 px-6 md:px-12">
+<div class="max-w-screen-2xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div>
+<h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Digital Toolkit</h2>
+<p class="text-on-surface-variant text-lg">My architectural foundation for scalable engineering.</p>
+</div>
+<div class="text-right">
+<span class="text-7xl font-black text-on-surface/5 font-headline">STACK.04</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Backend -->
+<div class="bg-surface-container-lowest p-10 rounded-xl hover:shadow-xl transition-all duration-300 group">
+<div class="w-16 h-16 bg-primary-container/20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">terminal</span>
+</div>
+<h3 class="text-2xl font-bold mb-4">Backend</h3>
+<p class="text-on-surface-variant mb-6 text-sm leading-relaxed">Robust APIs and data-driven systems built for scale and performance.</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Node.js</span>
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">PostgreSQL</span>
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Redis</span>
+</div>
+</div>
+<!-- Frontend -->
+<div class="bg-surface-container-lowest p-10 rounded-xl hover:shadow-xl transition-all duration-300 group">
+<div class="w-16 h-16 bg-secondary-container/20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary text-3xl">auto_awesome</span>
+</div>
+<h3 class="text-2xl font-bold mb-4">Frontend</h3>
+<p class="text-on-surface-variant mb-6 text-sm leading-relaxed">Immersive, responsive interfaces crafted with React and motion design.</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">React</span>
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Next.js</span>
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Tailwind</span>
+</div>
+</div>
+<!-- Architecture -->
+<div class="bg-surface-container-lowest p-10 rounded-xl hover:shadow-xl transition-all duration-300 group">
+<div class="w-16 h-16 bg-primary-container/20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">schema</span>
+</div>
+<h3 class="text-2xl font-bold mb-4">Architecture</h3>
+<p class="text-on-surface-variant mb-6 text-sm leading-relaxed">System design focusing on cloud infrastructure and CI/CD pipelines.</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">AWS</span>
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Docker</span>
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Vercel</span>
+</div>
+</div>
+<!-- Design -->
+<div class="bg-surface-container-lowest p-10 rounded-xl hover:shadow-xl transition-all duration-300 group">
+<div class="w-16 h-16 bg-secondary-container/20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary text-3xl">draw</span>
+</div>
+<h3 class="text-2xl font-bold mb-4">Design</h3>
+<p class="text-on-surface-variant mb-6 text-sm leading-relaxed">Editorial UI/UX layouts that prioritize readability and human touch.</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Figma</span>
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Storybook</span>
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Type Design</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Selected Works Section -->
+<section class="py-32 px-6 md:px-12 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-4 mb-20">
+<h2 class="text-4xl md:text-5xl font-bold tracking-tight">Selected Works</h2>
+<div class="flex-grow h-[1px] bg-outline-variant/20"></div>
+<div class="flex gap-2">
+<button class="w-12 h-12 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="space-y-32">
+<!-- Aura Finance -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-4 shadow-sm">
+<div class="aspect-[16/10] overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="Minimalist financial dashboard UI with glassmorphism cards and soft purple data visualizations" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaOZRpatPda1rVWh6CPR8WYIH5wTyO0A0tJDyunOAxG4BdAb60geWzjRGjAcumiA4hRGTL9mcW618mZNRTxXmcuPi2zzcI9Kw0j1UunFf_cZ3QLgd5d-EkQjx86Q1jtIUfMi1cc0o_MUkLpl-28MFkfmpEmzz1hFT3tZA3oca0U1ZA_n7l-S9y_M2DFLmjwhUy5rMKfzuZKfgveD-ri6sE-fQusEaiaSGCI0FAeKirM0ll4iX4TONqXWwAC4nlHhAE3sK2oquhcqIE"/>
+</div>
+</div>
+<div class="lg:col-span-5 px-6 lg:px-0">
+<div class="text-primary font-bold mb-4 tracking-wider text-xs">FINTECH • 2024</div>
+<h3 class="text-4xl font-bold mb-6">Aura Finance</h3>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                            A next-generation wealth management platform. Built with React and Node.js, focusing on real-time data streaming and high-fidelity visual representations of complex portfolios.
+                        </p>
+<div class="flex gap-8 border-t border-outline-variant/20 pt-8">
+<div>
+<span class="block text-2xl font-bold text-on-surface">35%</span>
+<span class="text-xs text-on-surface-variant uppercase tracking-widest">Efficiency</span>
+</div>
+<div>
+<span class="block text-2xl font-bold text-on-surface">12k+</span>
+<span class="text-xs text-on-surface-variant uppercase tracking-widest">Users</span>
+</div>
+</div>
+<button class="mt-10 flex items-center gap-2 font-bold text-primary hover:gap-4 transition-all">
+                            Explore Case Study <span class="material-symbols-outlined">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Chronos Market -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-5 order-2 lg:order-1 px-6 lg:px-0">
+<div class="text-secondary font-bold mb-4 tracking-wider text-xs">E-COMMERCE • 2023</div>
+<h3 class="text-4xl font-bold mb-6">Chronos Market</h3>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                            A high-end marketplace for horological collectors. Featuring an asymmetric layout and a custom search engine designed for rare vintage timepiece metadata.
+                        </p>
+<div class="flex gap-8 border-t border-outline-variant/20 pt-8">
+<div>
+<span class="block text-2xl font-bold text-on-surface">4.9s</span>
+<span class="text-xs text-on-surface-variant uppercase tracking-widest">Load Speed</span>
+</div>
+<div>
+<span class="block text-2xl font-bold text-on-surface">Global</span>
+<span class="text-xs text-on-surface-variant uppercase tracking-widest">Shipping</span>
+</div>
+</div>
+<button class="mt-10 flex items-center gap-2 font-bold text-secondary hover:gap-4 transition-all">
+                            Explore Case Study <span class="material-symbols-outlined">open_in_new</span>
+</button>
+</div>
+<div class="lg:col-span-7 order-1 lg:order-2 bg-surface-container-lowest rounded-xl p-4 shadow-sm">
+<div class="aspect-[16/10] overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="Editorial e-commerce layout for luxury watches with bold typography and warm lighting photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5t4KDznhezHeC3U6H2wdzKBXknBhM_zatUs3xGexY9gRUrrNWwYECJN9vf4hqG92Iz8PfKYBEt9DcRs8FuecCN5Ixvw-HJJolBJrMikydKEf4kzh2wZ_OVF6SYaofsqYCSwb1ROCBU18HJeGg18UEmOWqTSpKX3ELw8w6YOrzIozlFbS7EvXjrWGFmDh4f-3SWDQ9GRfIMCu0Ase0Onz81UCebzProSPeClJ4wWbJK1RGsv1z5NMW7tSURiCz8GCivLfefuyTZcFF"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-6 md:px-12 max-w-screen-xl mx-auto py-32">
+<div class="primary-gradient rounded-xl p-16 text-center text-on-primary shadow-2xl relative overflow-hidden">
+<!-- Decorative background elements -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-secondary-container/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+<h2 class="text-4xl md:text-6xl font-bold mb-8 relative z-10 leading-tight">Ready to build something<br/>with soul?</h2>
+<p class="text-xl text-on-primary/80 mb-12 max-w-xl mx-auto relative z-10">
+                    I'm currently available for freelance architectural consultations and full-stack development projects.
+                </p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
+<button class="bg-white text-primary px-12 py-5 rounded-full font-bold text-lg hover:shadow-xl transition-all active:scale-95">Start a Project</button>
+<button class="bg-transparent border-2 border-white/30 text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-white/10 transition-all">View Process</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-[3rem] mt-20 bg-[#f1f1f0] dark:bg-zinc-950 font-['Plus_Jakarta_Sans'] text-sm">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full max-w-screen-2xl mx-auto">
+<div class="mb-8 md:mb-0">
+<div class="text-lg font-semibold text-zinc-800 dark:text-zinc-200 mb-2">The Tactile Canvas</div>
+<p class="text-zinc-500 dark:text-zinc-400">© 2024 The Tactile Canvas. Built with intention.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-coral-500 transition-all opacity-80 hover:opacity-100" href="#">GitHub</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-coral-500 transition-all opacity-80 hover:opacity-100" href="#">LinkedIn</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-coral-500 transition-all opacity-80 hover:opacity-100" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+</body></html>

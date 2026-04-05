@@ -1,8 +1,14 @@
-// src/components/Hero.jsx
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import personaConfig from "../persona/persona-config";
+import { usePersona } from "../persona/persona-state";
+
+const PORTFOLIO_HREF = "#portfolio";
+const CONTACT_HREF = "#contact";
 
 const Hero = () => {
+  const { persona } = usePersona();
+  const heroCopy = personaConfig[persona].hero;
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -12,21 +18,18 @@ const Hero = () => {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-  // Add more floating elements with varied patterns
   const floatingElements = [
     { x: '10%', y: '20%', size: 'w-3 h-3', delay: 0 },
     { x: '90%', y: '60%', size: 'w-2 h-2', delay: 0.2 },
     { x: '50%', y: '80%', size: 'w-4 h-4', delay: 0.4 },
     { x: '80%', y: '30%', size: 'w-3 h-3', delay: 0.6 },
     { x: '20%', y: '70%', size: 'w-2 h-2', delay: 0.8 },
-    // Add more floating elements
     { x: '15%', y: '40%', size: 'w-5 h-5', delay: 1 },
     { x: '75%', y: '25%', size: 'w-4 h-4', delay: 1.2 },
     { x: '85%', y: '85%', size: 'w-3 h-3', delay: 1.4 },
     { x: '40%', y: '15%', size: 'w-6 h-6', delay: 1.6 }
   ];
 
-  // Update the techStack array
   const techStack = [
     {
       name: 'React',
@@ -76,8 +79,7 @@ const Hero = () => {
   ];
   
   return (
-    <section ref={containerRef} className="min-h-screen bg-gradient-to-br from-white via-primary/5 to-white flex items-center relative overflow-hidden px-4 md:px-0">
-      {/* Animated background shapes */}
+    <section id="home" ref={containerRef} className="min-h-screen bg-background-subtle bg-[radial-gradient(ellipse_at_50%_80%,var(--fr-color-hero-glow)_0%,transparent_60%)] flex items-center relative overflow-hidden px-4 md:px-0">
       <motion.div
         animate={{
           scale: [1, 1.2, 1],
@@ -88,7 +90,7 @@ const Hero = () => {
           repeat: Infinity,
           ease: "linear"
         }}
-        className="absolute top-20 right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl"
+        className="absolute top-20 right-20 w-64 h-64 bg-blue-glow rounded-full blur-3xl"
       />
       <motion.div
         animate={{
@@ -100,18 +102,17 @@ const Hero = () => {
           repeat: Infinity,
           ease: "linear"
         }}
-        className="absolute bottom-20 left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+        className="absolute bottom-20 left-20 w-96 h-96 bg-blue-glow rounded-full blur-3xl"
       />
       
-      {/* Main content with parallax effect */}
       <motion.div style={{ y, opacity }} className="container-custom text-center relative z-10 py-20 md:py-0">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-[-0.08em] leading-[0.9] mb-6 text-foreground"
         >
-          <span className="text-gray-900">Full Stack Developer</span>
+          <span>{heroCopy.headline}</span>
           <br />
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
@@ -119,7 +120,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-primary inline-block"
           >
-            with 5 Years of Experience
+            {heroCopy.highlight}
           </motion.span>
         </motion.h1>
 
@@ -127,10 +128,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg md:text-xl mb-8 md:mb-12 max-w-3xl mx-auto text-gray-600"
+          className="text-lg md:text-xl mb-8 md:mb-12 max-w-3xl mx-auto text-muted"
         >
-          Turning ideas into scalable, user-friendly web applications using React,
-          Vite, and Supabase.
+          {heroCopy.description}
         </motion.p>
 
         <motion.div 
@@ -139,15 +139,14 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <a href="#portfolio" className="btn-primary w-full sm:w-auto">
-            View My Work
+          <a href={PORTFOLIO_HREF} className="btn-primary w-full sm:w-auto">
+            {heroCopy.primaryCta.label}
           </a>
-          <a href="#contact" className="btn-secondary w-full sm:w-auto">
-            Contact Me
+          <a href={CONTACT_HREF} className="btn-secondary w-full sm:w-auto">
+            {heroCopy.secondaryCta.label}
           </a>
         </motion.div>
 
-        {/* Tech stack section */}
         <motion.div 
           className="mt-12 md:mt-20 relative"
           initial={{ opacity: 0 }}
@@ -169,13 +168,13 @@ const Hero = () => {
                     {tech.icon}
                   </div>
                   <motion.div
-                    className="absolute inset-0 bg-primary/5 rounded-full -z-10"
+                    className="absolute inset-0 bg-blue-glow rounded-full -z-10"
                     initial={{ scale: 0 }}
                     whileHover={{ scale: 1.5 }}
                     transition={{ duration: 0.3 }}
                   />
                 </div>
-                <span className="text-xs md:text-sm text-gray-600 mt-2 group-hover:text-primary transition-colors">
+                <span className="text-xs md:text-sm text-muted mt-2 group-hover:text-foreground transition-colors">
                   {tech.name}
                 </span>
               </motion.div>
@@ -183,7 +182,6 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -191,18 +189,18 @@ const Hero = () => {
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
           <a href="#about" className="flex flex-col items-center group">
-            <span className="text-sm text-gray-500 mb-2 group-hover:text-primary transition-colors">
+            <span className="text-sm text-muted mb-2 group-hover:text-foreground transition-colors">
               Scroll Down
             </span>
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center group-hover:border-primary transition-colors"
+              className="w-6 h-10 border border-border rounded-full flex justify-center group-hover:border-primary transition-colors"
             >
               <motion.div
                 animate={{ y: [0, 12, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 group-hover:bg-primary transition-colors"
+                className="w-1.5 h-1.5 bg-ghost rounded-full mt-2 group-hover:bg-primary transition-colors"
               />
             </motion.div>
           </a>

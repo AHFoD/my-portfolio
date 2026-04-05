@@ -1,0 +1,35 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hobby avatar">
+  <defs>
+    <radialGradient id="bg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(176 160) rotate(55) scale(420)">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="0.55" stop-color="#050508"/>
+      <stop offset="1" stop-color="#000000"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(300 220) rotate(60) scale(260)">
+      <stop offset="0" stop-color="#0099FF" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#0099FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="144" y1="120" x2="408" y2="408" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9FF0FF"/>
+      <stop offset="0.45" stop-color="#0099FF"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+    <filter id="soft" x="-20" y="-20" width="552" height="552" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="256" fill="url(#bg)"/>
+  <circle cx="300" cy="220" r="170" fill="url(#glow)"/>
+  <circle cx="256" cy="264" r="170" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+  <circle cx="256" cy="264" r="132" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+  <circle cx="256" cy="264" r="84" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+  <circle cx="256" cy="264" r="36" fill="url(#accent)"/>
+  <circle cx="256" cy="264" r="10" fill="rgba(0,0,0,0.6)"/>
+  <path d="M188 156C224 124 278 124 324 158" stroke="url(#accent)" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
+  <path d="M176 198C216 164 286 164 336 202" stroke="rgba(255,255,255,0.25)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M332 370L408 328" stroke="rgba(255,255,255,0.2)" stroke-width="18" stroke-linecap="round"/>
+  <path d="M332 370L408 328" stroke="url(#accent)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M412 324C422 318 434 330 428 340C424 346 416 350 408 346C400 342 402 330 412 324Z" fill="url(#accent)"/>
+  <circle cx="136" cy="338" r="34" fill="rgba(0,153,255,0.14)" filter="url(#soft)"/>
+  <circle cx="396" cy="140" r="26" fill="rgba(124,58,237,0.14)" filter="url(#soft)"/>
+</svg>

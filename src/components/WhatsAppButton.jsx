@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const WhatsAppButton = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const phoneNumber = "60123456789"; // Replace with actual WhatsApp number
+  const phoneNumber = "601132391267"; // Replace with actual WhatsApp number
   const message = "Hi! I'm interested in your services.";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
@@ -19,12 +19,12 @@ const WhatsAppButton = () => {
       whileTap={{ scale: 0.9 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="fixed bottom-6 right-6 z-50 bg-green-500 text-white rounded-full shadow-2xl hover:shadow-green-500/50 transition-all flex items-center gap-3 group"
+      className="fixed bottom-6 right-6 z-50 bg-frosted backdrop-blur-xl border border-border-subtle text-foreground rounded-full shadow-floating transition-all flex items-center gap-3 group hover:bg-frosted-hover focus-visible:outline-none focus-visible:shadow-ring"
       aria-label="Contact via WhatsApp"
     >
       <div className="w-14 h-14 flex items-center justify-center">
         <svg
-          className="w-8 h-8"
+          className="w-8 h-8 text-[#25D366]"
           fill="currentColor"
           viewBox="0 0 24 24"
         >
@@ -52,7 +52,7 @@ const WhatsAppButton = () => {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute inset-0 bg-green-500 rounded-full -z-10"
+        className="absolute inset-0 bg-blue-glow rounded-full -z-10"
       />
     </motion.a>
   );

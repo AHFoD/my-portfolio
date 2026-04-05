@@ -1,5 +1,5 @@
-/** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -7,28 +7,56 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: {
-          DEFAULT: '#FF5F1F',
-          light: '#FF7F50',
-          dark: '#E65100',
-        },
-        dark: {
-          DEFAULT: '#0A0A0A', // Deeper black for better contrast
-          light: '#141414',   // Subtle variation for depth
-          lighter: '#1A1A1A', // Subtle backgrounds
-        },
-        light: {
-          DEFAULT: '#FFFFFF',
-          dark: '#F8F8F8',
-          darker: '#EEEEEE',
-        }
+        background: 'rgb(var(--fr-tactile-background) / <alpha-value>)',
+        'background-subtle': 'rgb(var(--fr-tactile-surface-container-low) / <alpha-value>)',
+        surface: 'rgb(var(--fr-tactile-surface-container-lowest) / <alpha-value>)',
+        'surface-2': 'rgb(var(--fr-tactile-surface-container-low) / <alpha-value>)',
+        'surface-container': 'rgb(var(--fr-tactile-surface-container) / <alpha-value>)',
+        'surface-container-lowest': 'rgb(var(--fr-tactile-surface-container-lowest) / <alpha-value>)',
+        'surface-container-low': 'rgb(var(--fr-tactile-surface-container-low) / <alpha-value>)',
+        foreground: 'rgb(var(--fr-tactile-on-background) / <alpha-value>)',
+        muted: 'rgb(var(--fr-tactile-on-surface-variant) / <alpha-value>)',
+        primary: 'rgb(var(--fr-tactile-primary) / <alpha-value>)',
+        'primary-container': 'rgb(var(--fr-tactile-primary-container) / <alpha-value>)',
+        'on-primary': 'rgb(var(--fr-tactile-on-primary) / <alpha-value>)',
+        secondary: 'rgb(var(--fr-tactile-secondary) / <alpha-value>)',
+        'secondary-container': 'rgb(var(--fr-tactile-secondary-container) / <alpha-value>)',
+        'on-secondary-container': 'rgb(var(--fr-tactile-on-secondary-container) / <alpha-value>)',
+        outline: 'rgb(var(--fr-tactile-outline) / <alpha-value>)',
+        'outline-variant': 'rgb(var(--fr-tactile-outline-variant) / <alpha-value>)',
+        ghost: 'rgb(var(--fr-tactile-on-background) / 0.65)',
+        placeholder: 'rgb(var(--fr-tactile-on-background) / 0.45)',
+        frosted: 'rgb(var(--fr-tactile-surface-container-lowest) / 0.7)',
+        'frosted-hover': 'rgb(var(--fr-tactile-surface-container-lowest) / 0.85)',
+        border: 'rgb(var(--fr-tactile-outline-variant) / 0.6)',
+        'border-subtle': 'rgb(var(--fr-tactile-outline-variant) / 0.35)',
+        'blue-glow': 'rgb(var(--fr-tactile-primary) / 0.12)',
+        black: 'rgb(var(--fr-color-black) / <alpha-value>)',
+        white: 'rgb(var(--fr-color-white) / <alpha-value>)',
+      },
+      boxShadow: {
+        ring: 'var(--fr-shadow-ring)',
+        contained: 'var(--fr-shadow-contained)',
+        floating: 'var(--fr-shadow-floating)',
       },
       spacing: {
         '128': '32rem',
       },
       borderRadius: {
-        'xl': '1rem',
-        '2xl': '1.5rem',
+        xs: 'var(--fr-radius-xs)',
+        sm: 'var(--fr-radius-sm)',
+        md: 'var(--fr-radius-md)',
+        lg: 'var(--fr-radius-lg)',
+        xl: 'var(--fr-radius-xl)',
+        '2xl': 'var(--fr-radius-2xl)',
+        pill: 'var(--fr-radius-pill)',
+      },
+      fontFamily: {
+        sans: ['var(--fr-font-body)'],
+        headline: ['var(--fr-font-display)'],
+        body: ['var(--fr-font-body)'],
+        label: ['var(--fr-font-body)'],
+        mono: ['var(--fr-font-mono)'],
       },
     },
   },

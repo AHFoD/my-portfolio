@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Outside of Work | The Tactile Canvas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffc4b1",
+                    "primary-fixed": "#ae8dff",
+                    "on-primary-fixed": "#000000",
+                    "error-dim": "#a70138",
+                    "background": "#f7f6f5",
+                    "secondary-dim": "#902e02",
+                    "surface-container-low": "#f1f1f0",
+                    "on-secondary-container": "#832800",
+                    "outline": "#767776",
+                    "primary-fixed-dim": "#a27cff",
+                    "secondary-container": "#ffc4b1",
+                    "inverse-on-surface": "#9d9d9c",
+                    "tertiary-container": "#fd9e78",
+                    "on-primary-container": "#2b006e",
+                    "tertiary-fixed": "#fd9e78",
+                    "on-background": "#2e2f2f",
+                    "inverse-primary": "#a078ff",
+                    "on-primary": "#f8f0ff",
+                    "surface-dim": "#d4d4d4",
+                    "on-surface": "#2e2f2f",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#510017",
+                    "surface-variant": "#dcdddc",
+                    "secondary": "#a03a0f",
+                    "on-surface-variant": "#5b5c5b",
+                    "on-primary-fixed-variant": "#370086",
+                    "surface-container-high": "#e2e2e1",
+                    "on-tertiary-fixed-variant": "#6a2a0d",
+                    "on-tertiary-fixed": "#3b1000",
+                    "surface": "#f7f6f5",
+                    "surface-container-highest": "#dcdddc",
+                    "surface-bright": "#f7f6f5",
+                    "tertiary-dim": "#813b1d",
+                    "on-tertiary-container": "#5e2105",
+                    "on-secondary-fixed": "#621c00",
+                    "surface-container": "#e8e8e7",
+                    "primary-dim": "#5e26c7",
+                    "outline-variant": "#adadac",
+                    "on-tertiary": "#ffefeb",
+                    "on-secondary": "#ffefeb",
+                    "on-error": "#ffefef",
+                    "error": "#b41340",
+                    "primary": "#6a37d4",
+                    "tertiary-fixed-dim": "#ed916c",
+                    "surface-tint": "#6a37d4",
+                    "primary-container": "#ae8dff",
+                    "secondary-fixed-dim": "#ffb196",
+                    "inverse-surface": "#0d0e0e",
+                    "on-secondary-fixed-variant": "#922f03",
+                    "tertiary": "#904728",
+                    "error-container": "#f74b6d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 rounded-b-3xl bg-[#f7f6f5]/70 backdrop-blur-xl shadow-[0px_10px_40px_rgba(46,47,47,0.05)]">
+<div class="flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto font-['Plus_Jakarta_Sans'] tracking-tight">
+<div class="text-xl font-bold text-zinc-800">The Tactile Canvas</div>
+<div class="hidden md:flex items-center space-x-10">
+<a class="text-zinc-600 hover:text-violet-500 transition-colors duration-300" href="#">Projects</a>
+<a class="text-zinc-600 hover:text-violet-500 transition-colors duration-300" href="#">Process</a>
+<a class="text-zinc-600 hover:text-violet-500 transition-colors duration-300" href="#">About</a>
+<a class="px-6 py-2.5 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-full font-semibold hover:scale-95 duration-200 ease-in-out" href="#">Say Hello</a>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-6 md:px-12 max-w-screen-xl mx-auto">
+<!-- Hero Narrative Section -->
+<header class="mb-24 max-w-3xl">
+<span class="inline-block px-4 py-1.5 rounded-full bg-tertiary-container text-on-tertiary-container text-sm font-bold tracking-wide mb-6">OUTSIDE OF WORK</span>
+<h1 class="text-5xl md:text-7xl font-extrabold text-on-surface tracking-tight leading-[1.1] mb-8">When the screen goes dark</h1>
+<p class="text-xl md:text-2xl text-on-surface-variant leading-relaxed font-light">
+                Digital precision requires analog balance. I believe the best code is written by minds that have spent time wandering in the mountains, smelling freshly ground coffee, and waiting for the perfect light to hit a lens. These are my rituals.
+            </p>
+</header>
+<!-- Bento Grid Interests -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-32">
+<!-- Photography: Large Feature -->
+<div class="md:col-span-8 group cursor-default">
+<div class="relative overflow-hidden rounded-xl aspect-[16/10] mb-6">
+<img alt="Photography" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close-up of a vintage analog film camera on a rustic wooden table with soft morning sunlight casting long shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD39NwwHz70BtM7My24nk5ifSQXNT80pgZT189WUvmTUkDKuE8ajNBvOgMu0SnLfWtGkrWWz-eWBj5xP2kNZRj9T78Bx5BD7d5nlkTbRDxXyc8M8lGbB98lhR-udnrIExSxmI6IzkWf3o6QlAUl2GiacvjU3nHHH8EIall1J7jSpBfW5RBDhuQtQcsbYDtC9JpzWzNfgCR0EpWOwYRJhjlLZkBP8UMaA6IYgdlIXvTGg6PviYxHwSVASAHRc0uODfCkLTnQTvigQzk8"/>
+<div class="absolute top-6 left-6 flex space-x-2">
+<span class="px-4 py-1.5 bg-surface-container-lowest/90 backdrop-blur-md rounded-full text-xs font-bold tracking-widest text-primary uppercase">MOMENTS</span>
+</div>
+</div>
+<h3 class="text-3xl font-bold mb-4 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+                    Photography
+                </h3>
+<p class="text-on-surface-variant max-w-2xl leading-relaxed text-lg">
+                    Capturing the quiet intersection of light and shadow. I prefer the slow pace of 35mm film—the intentionality of having only 36 frames forces me to see the world with more patience and presence.
+                </p>
+</div>
+<!-- Hiking: Vertical Accent -->
+<div class="md:col-span-4 flex flex-col justify-between">
+<div class="bg-surface-container-low rounded-xl p-8 mb-8 flex-grow">
+<div class="mb-8 rounded-lg overflow-hidden h-64">
+<img alt="Hiking" class="w-full h-full object-cover" data-alt="Majestic misty mountains at dawn with layers of blue and purple silhouettes stretching into the distance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA34rO7Ai_Oc1hFgQ0pbxEJKgZHiatOjsaoJmZ02GWhiQDDnQbRDSVC715tziswJFaq9qzTOT_eV83b6zeadiQM3K07PTpr8GgKatgiGjoV1tcF7zoGN84J90v56kikyFd-fnTxwpsYX3AcM1T3qSDA5LbKsujVhfApdIljX4hKO2PFuOrVyO9IqVco1LQiagsJRDlp5Q37x_LX-lIL_vx0QXS3e_RfTb2qqni1q9bShRdkdR12qPYRzZNDTjIMKCTxtl_A8M_JA7a"/>
+</div>
+<h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">landscape</span>
+                        Hiking
+                    </h3>
+<p class="text-on-surface-variant leading-relaxed">
+                        There is a clarity found at 2,000 meters that no monitor can replicate. Forging trails and reaching peaks is where I deconstruct complex problems and find fresh perspectives.
+                    </p>
+</div>
+<!-- Mini Stats / Skill Pill Style -->
+<div class="flex flex-wrap gap-3">
+<div class="px-5 py-3 rounded-full bg-secondary-container text-on-secondary-container font-semibold text-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">explore</span> Alpine Trails
+                    </div>
+<div class="px-5 py-3 rounded-full bg-secondary-container text-on-secondary-container font-semibold text-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">filter_hdr</span> Peak Bagging
+                    </div>
+</div>
+</div>
+<!-- Coffee: Horizontal Wide -->
+<div class="md:col-span-12 mt-12">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col md:flex-row items-stretch shadow-[0px_10px_40px_rgba(46,47,47,0.05)]">
+<div class="md:w-1/2">
+<img alt="Coffee Brewing" class="w-full h-full object-cover min-h-[400px]" data-alt="Steam rising from a ceramic mug of pour-over coffee sitting next to a pile of coffee beans and a silver kettle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmTcqObQayomTWcE39UEAl1XYEGntcrEGIk_ysY9AST9-onDFfLplw9-ZzIQDQGTTOWPQgsL5PSXicQfR70uzWynPi3Voun2AoaEwRWAq3gUm3lG6dPo9FyQK8SqNUeEF2DBtXFE2_fL3_B8JIYa0uki8STQhiID6gyGNiXe9TkF56bhlQm0wGomJJVBuKyWuwqcvYsZGNWa9Nno4uwVHYTs1AZ6LYJMePvCbS-reGc16xEVJZ9Ahy6kcjc2Iyin_oU19VPMytD3_n"/>
+</div>
+<div class="md:w-1/2 p-12 md:p-16 flex flex-col justify-center">
+<span class="text-tertiary font-bold tracking-widest text-xs uppercase mb-4">THE RITUAL</span>
+<h3 class="text-4xl font-extrabold mb-6 leading-tight">Coffee Brewing: <br/>The Science of the Sip</h3>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                            Every morning starts with a V60 pour-over. Measuring grams, monitoring water temperature, and timing the bloom—it's the perfect micro-meditation before the work day begins.
+                        </p>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-container text-xl">science</span>
+</div>
+<span class="font-medium text-on-surface">Precision Ratios (1:16)</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-container text-xl">local_cafe</span>
+</div>
+<span class="font-medium text-on-surface">Ethically Sourced Beans</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Narrative Section: Analog Rituals -->
+<section class="max-w-4xl mx-auto py-24 border-t border-outline-variant/20">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+<div>
+<h2 class="text-4xl font-extrabold tracking-tight mb-8">The Value of the Analog</h2>
+<p class="text-on-surface-variant text-lg leading-[1.8] mb-6">
+                        In a world of infinite undo buttons and cloud backups, there is something profound about a physical photograph or a hand-brewed cup of coffee. You can't Command+Z a shutter click. You can't automate the taste of a roast.
+                    </p>
+<p class="text-on-surface-variant text-lg leading-[1.8]">
+                        These analog rituals ground me. They remind me that friction is often where the most beauty is found, and that taking the slow path usually leads to a more meaningful destination.
+                    </p>
+</div>
+<div class="bg-surface-container-low rounded-xl p-10 flex flex-col items-center justify-center text-center">
+<div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<blockquote class="text-xl italic font-medium text-on-surface mb-6">
+                        "The goal isn't just to work better, but to live with more intention."
+                    </blockquote>
+<div class="h-px w-12 bg-outline-variant mb-6"></div>
+<p class="text-sm font-bold tracking-widest text-primary uppercase">Core Philosophy</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-[3rem] mt-20 bg-[#f1f1f0] dark:bg-zinc-950 font-['Plus_Jakarta_Sans'] text-sm">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full max-w-screen-2xl mx-auto">
+<div class="mb-8 md:mb-0">
+<div class="text-lg font-semibold text-zinc-800 dark:text-zinc-200 mb-2">The Tactile Canvas</div>
+<p class="text-zinc-500 dark:text-zinc-400">© 2024 The Tactile Canvas. Built with intention.</p>
+</div>
+<div class="flex space-x-8">
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-coral-500 transition-all opacity-80 hover:opacity-100" href="#">GitHub</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-coral-500 transition-all opacity-80 hover:opacity-100" href="#">LinkedIn</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-coral-500 transition-all opacity-80 hover:opacity-100" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+</body></html>

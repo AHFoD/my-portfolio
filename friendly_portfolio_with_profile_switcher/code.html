@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#b41340",
+                    "on-surface": "#2e2f2f",
+                    "secondary": "#a03a0f",
+                    "surface-container": "#e8e8e7",
+                    "secondary-fixed": "#ffc4b1",
+                    "background": "#f7f6f5",
+                    "error-dim": "#a70138",
+                    "surface-container-highest": "#dcdddc",
+                    "surface-container-high": "#e2e2e1",
+                    "error-container": "#f74b6d",
+                    "primary-dim": "#5e26c7",
+                    "secondary-fixed-dim": "#ffb196",
+                    "surface-variant": "#dcdddc",
+                    "tertiary-fixed-dim": "#ed916c",
+                    "on-primary": "#f8f0ff",
+                    "on-tertiary-fixed-variant": "#6a2a0d",
+                    "on-secondary": "#ffefeb",
+                    "inverse-on-surface": "#9d9d9c",
+                    "on-tertiary-fixed": "#3b1000",
+                    "primary-fixed-dim": "#a27cff",
+                    "surface-bright": "#f7f6f5",
+                    "secondary-container": "#ffc4b1",
+                    "on-secondary-fixed-variant": "#922f03",
+                    "tertiary-fixed": "#fd9e78",
+                    "on-secondary-container": "#832800",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#5b5c5b",
+                    "on-primary-fixed-variant": "#370086",
+                    "secondary-dim": "#902e02",
+                    "on-error-container": "#510017",
+                    "outline": "#767776",
+                    "tertiary-dim": "#813b1d",
+                    "primary": "#6a37d4",
+                    "tertiary-container": "#fd9e78",
+                    "primary-container": "#ae8dff",
+                    "tertiary": "#904728",
+                    "on-tertiary-container": "#5e2105",
+                    "inverse-surface": "#0d0e0e",
+                    "on-secondary-fixed": "#621c00",
+                    "on-background": "#2e2f2f",
+                    "on-primary-fixed": "#000000",
+                    "outline-variant": "#adadac",
+                    "on-error": "#ffefef",
+                    "on-tertiary": "#ffefeb",
+                    "inverse-primary": "#a078ff",
+                    "surface-container-low": "#f1f1f0",
+                    "surface-tint": "#6a37d4",
+                    "on-primary-container": "#2b006e",
+                    "surface-dim": "#d4d4d4",
+                    "surface": "#f7f6f5",
+                    "primary-fixed": "#ae8dff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab-glow {
+            box-shadow: 0px 10px 40px rgba(106, 55, 212, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#f7f6f5]/70 dark:bg-zinc-900/70 backdrop-blur-xl">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto font-['Plus_Jakarta_Sans'] tracking-tight">
+<div class="text-xl font-bold text-[#2e2f2f] dark:text-zinc-100">
+                The Human Algorithm
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#6a37d4] dark:text-[#ae8dff] font-bold border-b-2 border-[#6a37d4] pb-1" href="#">Projects</a>
+<a class="text-[#2e2f2f] dark:text-zinc-400 hover:text-[#6a37d4] transition-colors duration-300" href="#">Process</a>
+<a class="text-[#2e2f2f] dark:text-zinc-400 hover:text-[#6a37d4] transition-colors duration-300" href="#">About</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-xl font-semibold hover:scale-95 transition-transform duration-300">
+                    Say Hello
+                </button>
+<span class="material-symbols-outlined text-on-surface text-2xl cursor-pointer">account_circle</span>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+<!-- Profile Switcher Header -->
+<header class="flex flex-col items-center text-center mb-16 space-y-8">
+<div class="inline-flex p-1.5 bg-surface-container-low rounded-xl">
+<button class="px-8 py-3 rounded-lg text-sm font-bold bg-surface-container-lowest text-primary active-tab-glow transition-all duration-300 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">code</span>
+                    Professional
+                </button>
+<button class="px-8 py-3 rounded-lg text-sm font-medium text-on-surface-variant hover:bg-surface-container-high transition-all duration-300 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">favorite</span>
+                    Outside of Work
+                </button>
+</div>
+</header>
+<!-- Professional Profile View -->
+<section class="space-y-32" id="professional-view">
+<!-- Hero Section -->
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8 text-left">
+<h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter text-on-surface leading-[1.1]">
+                        I build digital experiences with <span class="text-primary">code</span> and <span class="text-secondary italic">soul</span>.
+                    </h1>
+<p class="text-xl text-on-surface-variant max-w-xl leading-relaxed">
+                        A full-stack developer blending technical precision with human-centric design. I transform complex problems into elegant, tactile interfaces.
+                    </p>
+<div class="flex gap-4">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-xl font-bold text-lg hover:scale-95 transition-transform shadow-[0px_10px_40px_rgba(46,47,47,0.05)]">
+                            View Case Studies
+                        </button>
+<button class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-xl font-bold text-lg hover:bg-opacity-80 transition-all">
+                            My Process
+                        </button>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/5 rounded-xl blur-3xl group-hover:bg-primary/10 transition-all duration-500"></div>
+<img alt="Developer workspace" class="relative rounded-xl w-full aspect-square object-cover shadow-[0px_20px_60px_rgba(46,47,47,0.08)] grayscale hover:grayscale-0 transition-all duration-700" data-alt="Modern minimalist home office setup with a high-end laptop, mechanical keyboard, and a soft-lit warm desk lamp in a bright room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfhUtEQBS5Fe5W0ASl0EoeTuAPzWYhqcSGNRCo0qucCtdDW5Fuqyj2rnSlZBzNFbq0A49jR7AqfLyBRatr0LGJlewAhq2Cr6ev5elq9_trKLwPVsOhoeYJLz3xm3Entn026BSG40t--_YmpbCm9exB0HbE_43aIn3GFEPJT3NovIjuRGz1nxFhgF8kkSjTxS2kZpIQaD3t8oPQ6l3dQ85ouIAQh_AwEWI-Q9fuQ9_TN5qigeAI_Jk-o7DIUHdqCstazG-AVoJp3H62"/>
+</div>
+</div>
+<!-- Digital Toolkit (Bento Style) -->
+<div class="space-y-12">
+<div class="flex items-end justify-between">
+<h2 class="text-3xl font-bold tracking-tight">Digital Toolkit</h2>
+<span class="text-primary font-medium">10+ Years of Craftsmanship</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="bg-surface-container-low p-8 rounded-xl space-y-4 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl" data-weight="fill">terminal</span>
+<h3 class="font-bold text-xl">Backend</h3>
+<p class="text-on-surface-variant text-sm">Node.js, Python, PostgreSQL</p>
+</div>
+<div class="bg-surface-container-low p-8 rounded-xl space-y-4 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl" data-weight="fill">layers</span>
+<h3 class="font-bold text-xl">Frontend</h3>
+<p class="text-on-surface-variant text-sm">React, Next.js, TailwindCSS</p>
+</div>
+<div class="bg-surface-container-low p-8 rounded-xl space-y-4 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl" data-weight="fill">polyline</span>
+<h3 class="font-bold text-xl">Architecture</h3>
+<p class="text-on-surface-variant text-sm">AWS, Docker, Kubernetes</p>
+</div>
+<div class="bg-surface-container-low p-8 rounded-xl space-y-4 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl" data-weight="fill">draw</span>
+<h3 class="font-bold text-xl">Design</h3>
+<p class="text-on-surface-variant text-sm">Figma, Motion Design, UI/UX</p>
+</div>
+</div>
+</div>
+<!-- Selected Works Gallery -->
+<div class="space-y-12">
+<h2 class="text-3xl font-bold tracking-tight">Selected Works</h2>
+<div class="grid md:grid-cols-2 gap-12">
+<!-- Project 1 -->
+<div class="group cursor-pointer">
+<div class="bg-surface-container-low rounded-xl overflow-hidden mb-6">
+<img alt="Data Visualization Dashboard" class="w-full aspect-[16/10] object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Sleek glassmorphism style financial dashboard with colorful data charts and a clean minimalist sidebar interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJmMZGH1Y71SCp0fKueXUSw2HPgHQh0dRR__3aEbrAqTxKjSI1OEqUGLPcBAm9ITOmZfKR159pmnqJAWVLLkHPCkD3PRjjG8xPtBirtn9rjL12ZASfbBrC5IX047t75LCRPbyPqODAqOhBigOoxtP4LoRZDXEk-i19RNmQGeWEpXthUPqplwEZY3jggtHt2mdzEiTCXIFFp91WOxs0zjRmh-B6wVl1a8sl1ipXGrHoHVGUnsJ0hxLoVOKLWxYOCCWazbE4SMNgklMF"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-2xl font-bold mb-2">Aura Finance</h3>
+<div class="flex gap-2">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Next.js</span>
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">D3.js</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">arrow_outward</span>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="group cursor-pointer">
+<div class="bg-surface-container-low rounded-xl overflow-hidden mb-6">
+<img alt="E-commerce Platform" class="w-full aspect-[16/10] object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Conceptual e-commerce product page for luxury watches showing macro photography of watch gears and clean typography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkJRWn4uAHZmNDjm2UxIowECNdAtBmTJNm_V_0t2CZXoYI30AnzpDsOAd9gztCEBqCDspu5k-Ra_PxlRlepd_uubtG_zGv4EEdciH--DJ7QI6_frvIds41H4g6HXAbCPEjV3AcwU6yZjLmKx5vy4t89b5h9yONWd_CR4GcN4Be_nSdDiIx6NBhZdEBsIIQ9uFvcdgVG1U_qthaDUQHNGFkOh0gDUSqCNGqP9e9-Thrg4r3-ilqo87HE6dTPRHugszPpfWR_CE78w_P"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-2xl font-bold mb-2">Chronos Market</h3>
+<div class="flex gap-2">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Shopify</span>
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">React</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">arrow_outward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- (Inactive for Visual) Outside of Work State Sample -->
+<!-- Note: In a real app this would be toggled. Showing below for UI demonstration as requested -->
+<section class="mt-40 space-y-24 border-t border-outline-variant/20 pt-24" id="personal-view">
+<div class="max-w-3xl">
+<h2 class="text-4xl font-extrabold tracking-tight mb-6">When the screen goes dark.</h2>
+<p class="text-xl text-on-surface-variant leading-relaxed">
+                    Life isn't just about syntax and semicolons. Here's a glimpse into the analog rituals that keep my algorithm human.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Interest: Photography -->
+<div class="bg-surface-container-lowest p-6 rounded-xl space-y-6 shadow-[0px_10px_40px_rgba(46,47,47,0.03)] group">
+<img alt="Photography" class="w-full aspect-square object-cover rounded-lg group-hover:scale-105 transition-transform" data-alt="Close up of a vintage 35mm film camera held by hands against a blurry golden hour city background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAfLPLDsE02vy_IZos1saqAzDRWPaegqYufzO-GV8e3pqjNmiN2UrQy3OGBro8ovo8SCzUVSDym0zqJklG-S6GKqVh5tsiVjW4CUvB59JS-7rc-V0D8HQEJjGXimaqEsxV3AVoeWtS_yOGFGetuBT9Ogu19xcFH3YMxafbvv5rafXJpqtnA4z8oL5uXja_qE_q4eTGIoeAp4FUwxVfeb1xqQXBrKcamE2VvXrC7zZQqRbWfd-LL7tZv1JHfGzExChOWjgBU426AqVZ"/>
+<div class="space-y-2">
+<h3 class="text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">photo_camera</span>
+                            Photography
+                        </h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Capturing the quiet moments of urban life through a 35mm lens. Focused on shadows and geometry.</p>
+</div>
+</div>
+<!-- Interest: Coffee -->
+<div class="bg-surface-container-lowest p-6 rounded-xl space-y-6 shadow-[0px_10px_40px_rgba(46,47,47,0.03)] group">
+<img alt="Coffee Brewing" class="w-full aspect-square object-cover rounded-lg group-hover:scale-105 transition-transform" data-alt="High-end pour over coffee setup with a ceramic dripper, glass carafe, and steam rising in soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzsBlPwpoR9ZDj0dvCqMrDNdvobeKgSBqBF7iyRs-Yv2sf-yBCaFhK9MqjMM2Pu4ibzhew2Hb-6DzEppYdpr5jP31P0ZRP3KWZVk91FmPPfQ7KY-M5gBSE-jxRngulf_fvWPoFna9-8nz4hCrbJyOXa60HbwHTgQFYyem89d8g8xjVYATvj-RUw-651DQaddjv3oYmPfwpEysbdk6m58gd59gr08UBNBhr2E7S1M8l_28unBmDXolD3gcwsEFavXTUeDk1bewoIWAn"/>
+<div class="space-y-2">
+<h3 class="text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">coffee</span>
+                            Coffee Brewing
+                        </h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Obsessed with the variable of time, temperature, and grind size. My morning starts at 93°C.</p>
+</div>
+</div>
+<!-- Interest: Hiking -->
+<div class="bg-surface-container-lowest p-6 rounded-xl space-y-6 shadow-[0px_10px_40px_rgba(46,47,47,0.03)] group">
+<img alt="Hiking" class="w-full aspect-square object-cover rounded-lg group-hover:scale-105 transition-transform" data-alt="Breathtaking wide view of a hiker standing on a mountain ridge overlooking a valley filled with mist at dawn" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe_qT3-M-TDZ-srdhfq5YhFeDmPPn8ZuMWz7_oFaAjiz-94kVpgjffP6vPkr1dfkkd2AOVX9myoYQLkh36IiMqK2CvrIkI-Cjh7pkKqLTwsQrPnCOr-PJ7NInMWd-x22gNGxwtd1GJuuv0Rx6DYksDqf_pKyXrURq14-hWju2JrNKEcFFEAeJlR8g36BveSK18tOPn5yySndhJYCtf43k8MtYxV8RXtZ7hXQaO1NV7Pbns0lXyQqXDoPFkBuRn63KeITA_w3n0ObIE"/>
+<div class="space-y-2">
+<h3 class="text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">landscape</span>
+                            Hiking
+                        </h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Finding perspective in high altitudes. Usually found somewhere in the Cascades on weekends.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f1f1f0] dark:bg-zinc-900 w-full py-12 px-8 mt-20">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto font-['Plus_Jakarta_Sans'] text-sm">
+<div class="text-lg font-bold text-[#2e2f2f] dark:text-zinc-100">
+                The Human Algorithm
+            </div>
+<p class="text-[#2e2f2f]/60 dark:text-zinc-500">
+                © 2024 The Human Algorithm. Built with organic precision.
+            </p>
+<div class="flex gap-8">
+<a class="text-[#2e2f2f]/60 dark:text-zinc-500 hover:text-[#6a37d4] dark:hover:text-[#ae8dff] transition-all opacity-80 hover:opacity-100" href="#">GitHub</a>
+<a class="text-[#2e2f2f]/60 dark:text-zinc-500 hover:text-[#6a37d4] dark:hover:text-[#ae8dff] transition-all opacity-80 hover:opacity-100" href="#">LinkedIn</a>
+<a class="text-[#2e2f2f]/60 dark:text-zinc-500 hover:text-[#6a37d4] dark:hover:text-[#ae8dff] transition-all opacity-80 hover:opacity-100" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+</body></html>
