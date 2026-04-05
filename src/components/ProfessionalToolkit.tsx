@@ -13,26 +13,10 @@ const stackLabelText: string = "STACK.04";
 
 const toolkitItems: readonly ToolkitItem[] = [
   {
-    title: "Backend",
-    description: "Robust APIs and data-driven systems built for performance and scale.",
-    tags: ["Node.js", "PostgreSQL", "Supabase"],
-    accent: "primary",
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" aria-hidden="true">
-        <path
-          d="M4 7.5h16M4 12h16M4 16.5h16"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
-  },
-  {
     title: "Frontend",
-    description: "Responsive, editorial layouts crafted with React, motion, and Tailwind.",
-    tags: ["React", "Vite", "Tailwind"],
-    accent: "secondary",
+    description: "Responsive, editorial layouts crafted with React, TypeScript, and Tailwind.",
+    tags: ["React", "Vite", "Bun", "TypeScript", "Tailwind", "shadcn"],
+    accent: "primary",
     icon: (
       <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" aria-hidden="true">
         <path
@@ -45,30 +29,47 @@ const toolkitItems: readonly ToolkitItem[] = [
     ),
   },
   {
-    title: "Architecture",
-    description: "System design with clear boundaries, predictable deployments, and observability.",
-    tags: ["CI/CD", "Docker", "Vercel"],
+    title: "Backend",
+    description: "Robust APIs and data-driven systems built for performance and scale.",
+    tags: ["Node.js", "Supabase", "PostgreSQL"],
+    accent: "secondary",
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" aria-hidden="true">
+        <path
+          d="M4 7.5h16M4 12h16M4 16.5h16"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: "Cloud & Infra",
+    description: "Scalable cloud architecture focusing on predictable deployments and global availability.",
+    tags: ["DigitalOcean", "AWS", "DO Apps"],
     accent: "primary",
     icon: (
       <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" aria-hidden="true">
         <path
-          d="M12 3l8 5v8l-8 5-8-5V8l8-5z"
+          d="M17.5 19H5C2.79 19 1 17.21 1 15C1 12.98 2.49 11.31 4.44 11.05C5.19 7.6 8.27 5 11.5 5C15.17 5 18.23 7.82 18.47 11.43C20.52 11.66 22 13.43 22 15.5C22 17.43 20.43 19 18.5 19H17.5Z"
           stroke="currentColor"
           strokeWidth="2"
+          strokeLinecap="round"
           strokeLinejoin="round"
         />
       </svg>
     ),
   },
   {
-    title: "Design",
-    description: "Human-first UI with sharp hierarchy, soft depth, and strong readability.",
-    tags: ["Figma", "Design Systems", "Accessibility"],
+    title: "AI & Automation",
+    description: "Leveraging advanced AI models and workflow automation to accelerate engineering.",
+    tags: ["n8n", "Claude", "Gemini", "Claude Code", "Kimi", "Warp.dev"],
     accent: "secondary",
     icon: (
       <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" aria-hidden="true">
         <path
-          d="M7 17l10-10M7 7h10v10"
+          d="M12 3l1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5z"
           stroke="currentColor"
           strokeWidth="2"
           strokeLinecap="round"

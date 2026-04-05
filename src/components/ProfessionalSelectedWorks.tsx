@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import type { ReactElement } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { type ReactElement, useState, useEffect } from "react";
 import personaConfig from "../persona/persona-config";
 import { usePersona } from "../persona/persona-state";
 
@@ -11,17 +11,18 @@ type WorkMetric = {
 type WorkProject = {
   readonly title: string;
   readonly description: string;
+  readonly fullDescription?: string;
   readonly image: string;
   readonly link: string;
   readonly tags: readonly string[];
   readonly sector?: string;
   readonly year?: string;
   readonly metrics?: readonly WorkMetric[];
+  readonly challenges?: string;
+  readonly outcome?: string;
 };
 
 const MAX_SELECTED_WORKS: number = 4;
-
-const isExternalHref = (href: string): boolean => /^https?:\/\//i.test(href);
 
 const getWorkEyebrow = (project: WorkProject): string => {
   const sector: string = project.sector ?? "PROJECT";
@@ -33,6 +34,20 @@ const ProfessionalSelectedWorks = (): ReactElement => {
   const { persona } = usePersona();
   const projects = personaConfig[persona].portfolio.projects as readonly WorkProject[];
   const selectedWorks = projects.slice(0, MAX_SELECTED_WORKS);
+  
+  const [selectedProject, setSelectedProject] = useState<WorkProject | null>(null);
+
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedProject]);
+
   return (
     <section id="portfolio" className="section-padding bg-background">
       <div className="container-custom">
@@ -42,7 +57,6 @@ const ProfessionalSelectedWorks = (): ReactElement => {
         </div>
         <div className="space-y-20 md:space-y-28">
           {selectedWorks.map((project: WorkProject, index: number) => {
-            const hasExternalLink: boolean = isExternalHref(project.link);
             const metrics: readonly WorkMetric[] = project.metrics ?? [];
             const isReversed: boolean = index % 2 === 1;
             return (
@@ -52,7 +66,8 @@ const ProfessionalSelectedWorks = (): ReactElement => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, margin: "-60px" }}
                   transition={{ duration: 0.5 }}
-                  className={`lg:col-span-7 bg-surface rounded-xl p-3 sm:p-4 shadow-ring border border-border-subtle ${
+                  onClick={() => setSelectedProject(project)}
+                  className={`lg:col-span-7 bg-surface rounded-xl p-3 sm:p-4 shadow-ring border border-border-subtle cursor-pointer ${
                     isReversed ? "order-2 lg:order-2" : "order-1 lg:order-1"
                   }`}
                 >
@@ -101,22 +116,126 @@ const ProfessionalSelectedWorks = (): ReactElement => {
                       ))}
                     </div>
                   )}
-                  <a
-                    href={project.link}
-                    target={hasExternalLink ? "_blank" : undefined}
-                    rel={hasExternalLink ? "noopener noreferrer" : undefined}
+                  <button
+                    onClick={() => setSelectedProject(project)}
                     className={`mt-9 inline-flex items-center gap-2 font-semibold transition-all hover:gap-4 ${
                       isReversed ? "text-secondary" : "text-primary"
                     }`}
                   >
                     Explore Case Study <span aria-hidden="true">↗</span>
-                  </a>
+                  </button>
                 </motion.div>
               </div>
             );
           })}
         </div>
       </div>
+
+      <AnimatePresence>
+        {selectedProject && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              onClick={() => setSelectedProject(null)}
+              className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
+            />
+            
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="fixed inset-y-0 right-0 z-50 overflow-y-auto w-full max-w-2xl bg-surface-2 border-l border-border-subtle shadow-2xl"
+            >
+              <div className="relative min-h-full pb-20">
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="absolute top-6 right-6 z-10 w-12 h-12 bg-surface/80 backdrop-blur-md border border-border-subtle rounded-full shadow-floating flex items-center justify-center hover:bg-surface hover:scale-105 hover:-rotate-90 transition-all duration-300"
+                  aria-label="Close modal"
+                >
+                  <svg className="w-5 h-5 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+
+                <div className="h-64 sm:h-80 md:h-96 w-full relative">
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-surface-2 to-transparent" />
+                </div>
+
+                <div className="px-8 sm:px-12 -mt-16 relative z-10">
+                  <div className="font-bold mb-3 tracking-[0.22em] text-xs uppercase text-primary">
+                    {getWorkEyebrow(selectedProject)}
+                  </div>
+                  <h2 className="text-3xl sm:text-5xl font-bold text-foreground mb-6 tracking-[-0.04em]">
+                    {selectedProject.title}
+                  </h2>
+                  
+                  <div className="flex flex-wrap gap-2 mb-10">
+                    {selectedProject.tags.map((tag: string) => (
+                      <span
+                        key={tag}
+                        className="bg-surface text-muted border border-border-subtle text-xs px-3 py-1 rounded-pill"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="prose prose-lg dark:prose-invert max-w-none text-muted leading-relaxed">
+                    {selectedProject.fullDescription?.split('\n').map((paragraph: string, idx: number) => (
+                      paragraph.trim() ? <p key={idx} className="mb-4">{paragraph}</p> : <br key={idx} />
+                    ))}
+                    
+                    {selectedProject.challenges && (
+                      <>
+                        <h3 className="text-xl font-bold text-foreground mt-8 mb-4">The Challenge</h3>
+                        <p>{selectedProject.challenges}</p>
+                      </>
+                    )}
+                    
+                    {selectedProject.outcome && (
+                      <>
+                        <h3 className="text-xl font-bold text-foreground mt-8 mb-4">The Outcome</h3>
+                        <p>{selectedProject.outcome}</p>
+                      </>
+                    )}
+                  </div>
+
+                  {selectedProject.metrics && selectedProject.metrics.length > 0 && (
+                    <div className="grid grid-cols-2 gap-8 border-y border-border-subtle my-12 py-8">
+                      {selectedProject.metrics.map((metric: WorkMetric) => (
+                        <div key={metric.label}>
+                          <span className="block text-3xl font-bold text-foreground mb-1">{metric.value}</span>
+                          <span className="text-[10px] text-muted uppercase tracking-[0.22em]">{metric.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  <div className="mt-12">
+                    <a
+                      href={selectedProject.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary w-full sm:w-auto justify-center"
+                    >
+                      Visit Site ↗
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

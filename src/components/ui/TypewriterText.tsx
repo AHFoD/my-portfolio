@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState, type ReactElement } from "react";
+import { useEffect, useState, type ReactElement } from "react";
+import { motion, type Variants } from "framer-motion";
 
 type TypewriterTextProps = {
   readonly text: string;
@@ -22,59 +23,76 @@ const TypewriterText = ({
   cursorBlinkMs = DEFAULT_CURSOR_BLINK_MS,
   className = "",
 }: TypewriterTextProps): ReactElement => {
-  const [visibleCount, setVisibleCount] = useState<number>(0);
+  const [isDone, setIsDone] = useState<boolean>(false);
   const [cursorVisible, setCursorVisible] = useState<boolean>(true);
-  const isDone: boolean = visibleCount >= text.length;
-  const visibleText: string = useMemo(() => text.slice(0, visibleCount), [text, visibleCount]);
-  useEffect(() => {
-    setVisibleCount(0);
-    let typingTimer: number = 0;
-    let stopTimer: number = 0;
-    const startTimer: number = window.setTimeout(() => {
-      typingTimer = window.setInterval(() => {
-        setVisibleCount((previous: number) => {
-          const next: number = previous + 1;
-          return next > text.length ? text.length : next;
-        });
-      }, charIntervalMs);
-      stopTimer = window.setTimeout(() => {
-        window.clearInterval(typingTimer);
-        setVisibleCount(text.length);
-      }, Math.max(0, text.length) * charIntervalMs + charIntervalMs);
-    }, startDelayMs);
-    return () => {
-      window.clearTimeout(startTimer);
-      window.clearInterval(typingTimer);
-      window.clearTimeout(stopTimer);
-    };
-  }, [text, startDelayMs, charIntervalMs]);
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: startDelayMs / 1000,
+        staggerChildren: charIntervalMs / 1000,
+      },
+    },
+  };
+
+  const childVariants: Variants = {
+    hidden: { display: "none", opacity: 0 },
+    visible: { display: "inline", opacity: 1 },
+  };
+
   useEffect(() => {
     if (!cursor) {
       setCursorVisible(false);
       return;
     }
+
     setCursorVisible(true);
     const blinkTimer: number = window.setInterval(() => {
       setCursorVisible((previous: boolean) => !previous);
     }, cursorBlinkMs);
-    if (!isDone) {
+
+    if (isDone) {
+      const hideTimer: number = window.setTimeout(() => {
+        window.clearInterval(blinkTimer);
+        setCursorVisible(false);
+      }, DEFAULT_CURSOR_HIDE_AFTER_DONE_MS);
+
       return () => {
         window.clearInterval(blinkTimer);
+        window.clearTimeout(hideTimer);
       };
     }
-    const hideTimer: number = window.setTimeout(() => {
-      window.clearInterval(blinkTimer);
-      setCursorVisible(false);
-    }, DEFAULT_CURSOR_HIDE_AFTER_DONE_MS);
+
     return () => {
       window.clearInterval(blinkTimer);
-      window.clearTimeout(hideTimer);
     };
   }, [cursor, cursorBlinkMs, isDone]);
+
+  const characters: string[] = text.split("");
+
+  useEffect(() => {
+    setIsDone(false);
+  }, [text]);
+
   return (
     <span className={className}>
       <span className="sr-only">{text}</span>
-      <span aria-hidden="true">{visibleText}</span>
+      <motion.span
+        key={text}
+        aria-hidden="true"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        onAnimationComplete={() => setIsDone(true)}
+      >
+        {characters.map((char: string, index: number) => (
+          <motion.span key={index} variants={childVariants}>
+            {char}
+          </motion.span>
+        ))}
+      </motion.span>
       {cursor ? (
         <span aria-hidden="true" className="inline-block align-baseline -ml-px">
           {cursorVisible ? "▍" : ""}

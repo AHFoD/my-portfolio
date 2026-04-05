@@ -23,16 +23,16 @@ const ProfessionalHero = (): ReactElement => {
   return (
     <section
       id="home"
-      className="pt-28 md:pt-32 pb-20 overflow-hidden bg-background-subtle bg-[radial-gradient(ellipse_at_50%_0%,var(--fr-color-hero-glow)_0%,transparent_60%)]"
+      className="min-h-[100dvh] pt-24 md:pt-28 pb-16 overflow-hidden bg-background-subtle bg-[radial-gradient(ellipse_at_50%_0%,var(--fr-color-hero-glow)_0%,transparent_60%)] flex flex-col justify-center"
     >
       <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           <div className="lg:col-span-7">
             <motion.span
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="type-eyebrow text-primary mb-6 block"
+              className="type-eyebrow text-primary mb-4 block"
             >
               {professionalHeroCopy.eyebrow}
             </motion.span>
@@ -40,7 +40,7 @@ const ProfessionalHero = (): ReactElement => {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.05 }}
-              className="type-display-hero mb-7"
+              className="type-display-hero mb-5"
             >
               {professionalHeroCopy.headline[0]}
               <TypewriterText text={professionalHeroCopy.headline[1]} className="text-primary" />
@@ -50,7 +50,7 @@ const ProfessionalHero = (): ReactElement => {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.15 }}
-              className="type-body-lead max-w-2xl mb-10"
+              className="type-body-lead max-w-2xl mb-6"
             >
               {professionalHeroCopy.description}
             </motion.p>
@@ -78,16 +78,16 @@ const ProfessionalHero = (): ReactElement => {
               transition={{ duration: 0.7, delay: 0.15 }}
               className="bg-surface rounded-xl overflow-hidden shadow-floating border border-border-subtle relative"
             >
-              <div className="p-6 sm:p-8">
-                <div className="flex items-start justify-between gap-6 mb-6">
+              <div className="p-5 sm:p-6">
+                <div className="flex items-start justify-between gap-5 mb-5">
                   <div>
                     <span className="type-eyebrow text-muted block">Blueprint</span>
-                    <p className="text-xl sm:text-2xl font-bold text-foreground tracking-[-0.04em] mt-3">
+                    <p className="text-base sm:text-lg font-bold text-foreground tracking-[-0.04em] mt-2">
                       Systems, UI, and craft
                     </p>
                   </div>
-                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-primary/10 text-primary">
-                    <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" aria-hidden="true">
+                  <span className="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-primary/10 text-primary">
+                    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" aria-hidden="true">
                       <path
                         d="M7 7h10M7 12h10M7 17h10"
                         stroke="currentColor"
@@ -97,18 +97,18 @@ const ProfessionalHero = (): ReactElement => {
                     </svg>
                   </span>
                 </div>
-                <div className="space-y-4">
-                  <div className="bg-surface-2 border border-border-subtle rounded-xl p-5">
+                <div className="space-y-3">
+                  <div className="bg-surface-2 border border-border-subtle rounded-xl p-3 sm:p-4">
                     <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-muted">Backend</p>
-                    <p className="text-foreground font-semibold mt-2">APIs that stay boring in production</p>
+                    <p className="text-foreground font-semibold text-sm mt-1">APIs that stay boring in production</p>
                   </div>
-                  <div className="bg-surface-2 border border-border-subtle rounded-xl p-5">
+                  <div className="bg-surface-2 border border-border-subtle rounded-xl p-3 sm:p-4">
                     <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-muted">Frontend</p>
-                    <p className="text-foreground font-semibold mt-2">Editorial UI with motion as feedback</p>
+                    <p className="text-foreground font-semibold text-sm mt-1">Editorial UI with motion as feedback</p>
                   </div>
-                  <div className="bg-surface-2 border border-border-subtle rounded-xl p-5">
+                  <div className="bg-surface-2 border border-border-subtle rounded-xl p-3 sm:p-4">
                     <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-muted">Delivery</p>
-                    <p className="text-foreground font-semibold mt-2">Clean PRs, stable deploys, crisp defaults</p>
+                    <p className="text-foreground font-semibold text-sm mt-1">Clean PRs, stable deploys, crisp defaults</p>
                   </div>
                 </div>
               </div>

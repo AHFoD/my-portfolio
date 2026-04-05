@@ -111,11 +111,19 @@ type PersonaFooterCopy = {
   readonly description: string;
 };
 
+type PersonaMusicTrack = {
+  readonly number: string;
+  readonly timestamp: string;
+  readonly title: string;
+  readonly label: string;
+};
+
 type PersonaMusicSet = {
   readonly title: string;
   readonly event: string;
   readonly youtubeId: string;
   readonly startAt?: number;
+  readonly tracklist?: readonly PersonaMusicTrack[];
 };
 
 type PersonaMusicCopy = {
@@ -334,7 +342,30 @@ const personaConfig = {
       title: "Current Rotation",
       description: "A personally curated list of uplifting trance sets I always come back to. When I'm not focused on UI details or finding the next twisty road, I'm usually locked into one of these. (Full disclosure: I'm a massive Ahmed Romel fan, so this list is admittedly a bit biased).",
       sets: [
-        { title: "Ahmed Romel [FULL SET]", event: "Luminosity Beach Festival 2019", youtubeId: "mPaSbpTON_0", startAt: 350 },
+        {
+          title: "Ahmed Romel [FULL SET]",
+          event: "Luminosity Beach Festival 2019",
+          youtubeId: "mPaSbpTON_0",
+          startAt: 350,
+          tracklist: [
+            { number: "01", timestamp: "--:--", title: "Ahmed Romel & Simon O'Shine - The Love Potion", label: "FSOE" },
+            { number: "02", timestamp: "4:00", title: "Aly & Fila - Sands Of Time (FSOE 600 Anthem)", label: "FSOE" },
+            { number: "03", timestamp: "7:30", title: "Ahmed Romel ft. Jennifer Rene - Silver Lining", label: "FSOE" },
+            { number: "04", timestamp: "12:20", title: "Ahmed Romel - Vanya", label: "FSOE" },
+            { number: "05", timestamp: "16:25", title: "A & Z vs. Claudiu Adam & Clara Yates - Thousand Pieces", label: "FSOE" },
+            { number: "06", timestamp: "21:00", title: "Ahmed Romel - Reverie", label: "FSOE" },
+            { number: "07", timestamp: "25:00", title: "Driftmoon - 11 Days", label: "ITWT (BLACK HOLE)" },
+            { number: "08", timestamp: "30:45", title: "Ahmed Romel - Vanaheim", label: "BLUE SOHO" },
+            { number: "09", timestamp: "34:40", title: "Niyaz - Dilruba (Junkie XL Remix - Ahmed Romel Rework)", label: "SIX DEGREES" },
+            { number: "10", timestamp: "38:50", title: "Sergey Nevone - Unhappy Marionette(Simon O'Shine Remix)", label: "AUDIORESEARCH MUSIC (DEFCON)" },
+            { number: "11", timestamp: "44:30", title: "Aly & Fila - It's All About The Melody", label: "FSOE" },
+            { number: "12", timestamp: "50:35", title: "Ahmed Romel - Rüya", label: "FSOE" },
+            { number: "13", timestamp: "55:30", title: "Heatbeat - Mechanizer (WAIO Remix)", label: "AERYS (ARMADA)" },
+            { number: "14", timestamp: "58:20", title: "Aly & Fila with Philippe El Sisi & Omar Sherif - A World Beyond (FSOE 550 Anthem)", label: "FSOE" },
+            { number: "15", timestamp: "1:04:40", title: "Ahmed Romel & Driftmoon - Ars Vitae", label: "FSOE" },
+            { number: "16", timestamp: "--:--", title: "Ahmed Romel - Mandalore", label: "BLUE SOHO" }
+          ]
+        },
         { title: "Ahmed Romel [FULL SET]", event: "Luminosity Beach Festival 2018", youtubeId: "IPuB24f3uhE", startAt: 1532 },
         { title: "Simon O'Shine LIVE", event: "We Love Trance CE 045", youtubeId: "JrEhWMy07yA" },
         { title: "Sean Tyas Live", event: "Luminosity Beach Festival 2019", youtubeId: "dfPPDUyirsA" },

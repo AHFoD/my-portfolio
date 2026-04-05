@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useForm, ValidationError } from "@formspree/react";
-import type { FormEvent, ReactElement } from "react";
+import { useState, type FormEvent, type ReactElement } from "react";
 import personaConfig from "../persona/persona-config";
 import { usePersona } from "../persona/persona-state";
 
@@ -53,6 +53,95 @@ const storyTile: InterestStory = {
   highlights: ["Engineering creates taste", "Flow beats features", "Texture over noise", "Readability is the groove"],
 };
 
+type PersonaMusicSet = NonNullable<typeof personaConfig.hobby.music>["sets"][number];
+
+const MusicSetRow = ({ set, index }: { readonly set: PersonaMusicSet; readonly index: number }): ReactElement => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const href = `https://www.youtube.com/watch?v=${set.youtubeId}${set.startAt ? `&t=${set.startAt}s` : ""}`;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-20px" }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
+      className="group flex flex-col py-6 border-b border-border-subtle transition-colors px-4 -mx-4 rounded-xl sm:rounded-none sm:px-0 sm:mx-0"
+    >
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-8">
+        <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8 flex-grow">
+          <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.2em] text-muted w-48 shrink-0 transition-colors">
+            {set.event}
+          </span>
+          <h3 className="text-xl sm:text-2xl font-bold text-foreground transition-transform duration-300">
+            {set.title}
+          </h3>
+        </div>
+        <div className="shrink-0 flex items-center gap-4 sm:gap-6">
+          {set.tracklist && set.tracklist.length > 0 && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="text-xs font-mono font-semibold uppercase tracking-widest text-muted hover:text-primary transition-colors flex items-center gap-2"
+              aria-expanded={isExpanded}
+            >
+              <span>{isExpanded ? "Hide Tracks" : "Tracklist"}</span>
+              <svg className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          )}
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 sm:gap-3 text-muted hover:text-primary transition-colors"
+          >
+            <span className="text-xs font-mono font-semibold uppercase tracking-widest hidden sm:inline-block">Listen</span>
+            <svg className="w-5 h-5 transform hover:translate-x-1 hover:-translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {isExpanded && set.tracklist && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="overflow-hidden"
+          >
+            <div className="pt-6 pb-2">
+              <div className="bg-surface-container-low rounded-xl border border-border-subtle p-4 sm:p-6 overflow-x-auto">
+                <table className="w-full text-left text-sm whitespace-nowrap sm:whitespace-normal min-w-[500px]">
+                  <thead>
+                    <tr className="text-muted border-b border-border-subtle">
+                      <th className="pb-3 font-medium w-12 font-mono text-[10px] uppercase tracking-widest">#</th>
+                      <th className="pb-3 font-medium w-20 sm:w-24 font-mono text-[10px] uppercase tracking-widest">Time</th>
+                      <th className="pb-3 font-medium font-mono text-[10px] uppercase tracking-widest">Track</th>
+                      <th className="pb-3 font-medium hidden sm:table-cell font-mono text-[10px] uppercase tracking-widest text-right">Label</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {set.tracklist.map((track) => (
+                      <tr key={track.number} className="border-b border-border-subtle/50 last:border-0 hover:bg-surface transition-colors group/track">
+                        <td className="py-3 text-muted font-mono text-xs">{track.number}</td>
+                        <td className="py-3 text-primary font-mono text-xs">{track.timestamp}</td>
+                        <td className="py-3 pr-4 sm:pr-0 text-foreground font-medium group-hover/track:text-primary transition-colors">{track.title}</td>
+                        <td className="py-3 text-muted hidden sm:table-cell text-right text-xs truncate max-w-[150px]">{track.label}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
 const HobbyLanding = (): ReactElement => {
   const { persona } = usePersona();
   const heroCopy = personaConfig[persona].hero;
@@ -83,7 +172,7 @@ const HobbyLanding = (): ReactElement => {
     <>
       <section
         id="home"
-        className="pt-32 md:pt-40 pb-20 bg-background"
+        className="min-h-[100dvh] pt-24 md:pt-28 pb-16 bg-background flex flex-col justify-center"
       >
         <div className="container-custom">
           <div className="max-w-4xl">
@@ -91,7 +180,7 @@ const HobbyLanding = (): ReactElement => {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.05 }}
-              className="type-display-hero mt-6 mb-7"
+              className="type-display-hero mt-4 mb-5"
             >
               {heroCopy.headline} <span className="text-primary">{heroCopy.highlight}</span>
             </motion.h1>
@@ -99,7 +188,7 @@ const HobbyLanding = (): ReactElement => {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.15 }}
-              className="type-body-lead max-w-2xl mb-12"
+              className="type-body-lead max-w-2xl mb-6"
             >
               {heroCopy.description}
             </motion.p>
@@ -196,32 +285,7 @@ const HobbyLanding = (): ReactElement => {
             </div>
             <div className="flex flex-col border-t border-border-subtle">
               {musicCopy.sets.map((set, index) => (
-                <motion.a
-                  key={set.youtubeId}
-                  href={`https://www.youtube.com/watch?v=${set.youtubeId}${set.startAt ? `&t=${set.startAt}s` : ""}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-20px" }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-8 py-6 border-b border-border-subtle hover:bg-surface-container-low transition-colors px-4 -mx-4 rounded-xl sm:rounded-none sm:px-0 sm:mx-0 sm:hover:bg-transparent"
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8 flex-grow">
-                    <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.2em] text-muted w-48 shrink-0 group-hover:text-primary transition-colors">
-                      {set.event}
-                    </span>
-                    <h3 className="text-xl sm:text-2xl font-bold text-foreground group-hover:translate-x-2 transition-transform duration-300">
-                      {set.title}
-                    </h3>
-                  </div>
-                  <div className="shrink-0 flex items-center gap-3 text-muted group-hover:text-primary transition-colors">
-                    <span className="text-xs font-mono font-semibold uppercase tracking-widest hidden sm:inline-block">Listen</span>
-                    <svg className="w-5 h-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </div>
-                </motion.a>
+                <MusicSetRow key={set.youtubeId} set={set} index={index} />
               ))}
             </div>
           </div>
