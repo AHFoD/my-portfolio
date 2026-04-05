@@ -35,7 +35,7 @@ type PersonaStat = {
   readonly icon: PersonaStatIcon;
 };
 
-type PersonaServiceIcon = "stack" | "layout" | "server" | "database" | "vinyl" | "mixer" | "playlist" | "motion";
+type PersonaServiceIcon = "stack" | "layout" | "server" | "database" | "vinyl" | "mixer" | "playlist" | "motion" | "gear" | "trend";
 
 type PersonaService = {
   readonly title: string;
@@ -247,7 +247,8 @@ const personaConfig = {
     footer: {
       brand: "Portfolio",
       description: "A showcase of my work and skills as a full stack developer."
-    }
+    },
+    music: undefined
   },
   hobby: {
     label: "Hobby",
