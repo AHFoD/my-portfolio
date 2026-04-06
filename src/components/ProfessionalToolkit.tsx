@@ -82,9 +82,9 @@ const toolkitItems: readonly ToolkitItem[] = [
 
 const ProfessionalToolkit = (): ReactElement => {
   return (
-    <section id="toolkit" className="section-padding bg-surface-container-low">
+    <section id="toolkit" className="min-h-[100dvh] pt-24 md:pt-28 pb-16 overflow-hidden bg-surface-container-low flex flex-col justify-center">
       <div className="container-custom">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-10 md:mb-14">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 mb-12 md:mb-16">
           <div>
             <h2 className="type-display-section mb-4">Digital Toolkit</h2>
             <p className="text-muted text-base sm:text-lg">My architectural foundation for scalable engineering.</p>
@@ -95,7 +95,7 @@ const ProfessionalToolkit = (): ReactElement => {
             </span>
           </div>
         </div>
-        <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-5 md:gap-6 pb-4 w-full">
+        <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 md:gap-8 pb-6 w-full">
           {toolkitItems.map((item: ToolkitItem, index: number) => (
             <motion.div
               key={item.title}
@@ -104,18 +104,18 @@ const ProfessionalToolkit = (): ReactElement => {
               viewport={{ once: false, margin: "-80px" }}
               transition={{ duration: 0.45, delay: index * 0.06 }}
               whileHover={{ y: -6 }}
-              className="min-w-[85vw] sm:min-w-[45vw] lg:min-w-[22vw] snap-start shrink-0 bg-surface p-6 sm:p-8 rounded-xl shadow-ring relative overflow-hidden border border-border-subtle"
+              className="min-w-[85vw] sm:min-w-[45vw] lg:min-w-[22vw] snap-start shrink-0 bg-surface p-8 sm:p-10 rounded-xl shadow-ring relative overflow-hidden border border-border-subtle"
             >
               <div
-                className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-7 ${
+                className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 ${
                   item.accent === "primary" ? "bg-primary/10 text-primary" : "bg-secondary-container/35 text-secondary"
                 }`}
               >
                 {item.icon}
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">{item.title}</h3>
-              <p className="text-muted text-sm leading-relaxed mb-6">{item.description}</p>
-              <div className="flex flex-wrap gap-2">
+              <h3 className="text-xl font-bold text-foreground mb-4">{item.title}</h3>
+              <p className="text-muted text-sm leading-relaxed mb-8">{item.description}</p>
+              <div className="flex flex-wrap gap-3">
                 {item.tags.map((tag: string) => (
                   <span
                     key={tag}

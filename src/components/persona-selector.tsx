@@ -1,4 +1,5 @@
 import { useId, useRef, type KeyboardEvent, type ReactElement } from "react";
+import { motion } from "framer-motion";
 import personaConfig from "../persona/persona-config";
 import type { Persona } from "../persona/persona";
 import { isPersona, usePersona } from "../persona/persona-state";
@@ -50,7 +51,11 @@ export default function PersonaSelector({ ariaLabel = "Persona selector", classN
   const { persona, setPersona } = usePersona();
   const baseId: string = useId();
   const buttonRefByPersona = useRef<Record<Persona, HTMLButtonElement | null>>({ professional: null, hobby: null });
-  const rootClassName: string = joinClassNames(["inline-flex items-center gap-6", className]);
+  const rootClassName: string = joinClassNames([
+    "pointer-events-auto",
+    "bg-background/80 backdrop-blur-md border border-border p-1.5 rounded-full shadow-2xl",
+    className
+  ]);
   const setPersonaAndFocus = (nextPersona: Persona): void => {
     setPersona(nextPersona);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -84,15 +89,21 @@ export default function PersonaSelector({ ariaLabel = "Persona selector", classN
     }
   };
   return (
-    <div className={rootClassName}>
-      <div role="tablist" aria-label={ariaLabel} onKeyDown={handleKeyDown} className="flex items-center gap-6">
+    <div className="fixed bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-50 pointer-events-none">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className={rootClassName}
+      >
+        <div role="tablist" aria-label={ariaLabel} onKeyDown={handleKeyDown} className="flex items-center gap-2">
         {PERSONAS.map((key: Persona) => {
           const selected: boolean = persona === key;
           const tabId: string = `${baseId}-tab-${key}`;
           const panelId: string = `${baseId}-panel-${key}`;
           const buttonClassName: string = joinClassNames([
-            "text-xs sm:text-sm font-bold uppercase tracking-widest transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
-            selected ? "text-primary border-b-2 border-primary pb-1" : "text-muted hover:text-foreground pb-1 border-b-2 border-transparent"
+            "relative px-6 py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
+            selected ? "text-background" : "text-muted hover:text-foreground"
           ]);
           return (
             <button
@@ -111,7 +122,14 @@ export default function PersonaSelector({ ariaLabel = "Persona selector", classN
               }}
               className={buttonClassName}
             >
-              {personaConfig[key].label}
+              {selected && (
+                <motion.div
+                  layoutId={`${baseId}-active-persona`}
+                  className="absolute inset-0 bg-primary rounded-full -z-10"
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+              )}
+              <span className="relative z-10">{personaConfig[key].label}</span>
             </button>
           );
         })}
@@ -128,6 +146,7 @@ export default function PersonaSelector({ ariaLabel = "Persona selector", classN
           );
         })}
       </div>
-    </div>
+    </motion.div>
+  </div>
   );
 }

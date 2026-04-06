@@ -175,7 +175,7 @@ const HobbyLanding = (): ReactElement => {
         className="min-h-[100dvh] pt-24 md:pt-28 pb-16 bg-background flex flex-col justify-center"
       >
         <div className="container-custom">
-          <div className="max-w-4xl">
+          <div className="max-w-5xl">
             <motion.h1
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -214,9 +214,9 @@ const HobbyLanding = (): ReactElement => {
           </div>
         </div>
       </section>
-      <section id="interests" className="section-padding bg-surface-container-low border-y border-border-subtle">
+      <section id="interests" className="min-h-[100dvh] pt-24 md:pt-28 pb-16 overflow-hidden bg-surface-container-low border-y border-border-subtle flex flex-col justify-center">
         <div className="container-custom">
-          <div className="max-w-3xl mb-16">
+          <div className="max-w-5xl mb-16">
             <span className="type-eyebrow text-primary mb-6 block">INTERESTS</span>
             <h2 className="type-display-section mb-6">{interestsHeading}</h2>
             <p className="text-muted text-base sm:text-lg leading-relaxed">{interestsSubheading}</p>
@@ -276,9 +276,9 @@ const HobbyLanding = (): ReactElement => {
         </div>
       </section>
       {musicCopy && (
-        <section id="music" className="section-padding bg-background">
+        <section id="music" className="min-h-[100dvh] pt-24 md:pt-28 pb-16 overflow-hidden bg-background flex flex-col justify-center">
           <div className="container-custom">
-            <div className="mb-14 md:mb-20 max-w-3xl">
+            <div className="mb-14 md:mb-20 max-w-5xl">
               <span className="type-eyebrow text-primary mb-6 block">SOUNDTRACK</span>
               <h2 className="type-display-section mb-6">{musicCopy.title}</h2>
               <p className="text-muted text-base sm:text-lg leading-relaxed">{musicCopy.description}</p>
@@ -291,7 +291,7 @@ const HobbyLanding = (): ReactElement => {
           </div>
         </section>
       )}
-      <section id="philosophy" className="section-padding bg-surface-container-low">
+      <section id="philosophy" className="min-h-[100dvh] pt-24 md:pt-28 pb-16 overflow-hidden bg-surface-container-low flex flex-col justify-center">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
             <div className="lg:col-span-5">
@@ -347,9 +347,9 @@ const HobbyLanding = (): ReactElement => {
           </div>
         </div>
       </section>
-      <section id="contact" className="section-padding bg-background">
+      <section id="contact" className="min-h-[100dvh] pt-24 md:pt-28 pb-16 overflow-hidden bg-background flex flex-col justify-center">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="type-display-section mb-4">{contactCopy.title}</h2>
               <p className="text-muted text-base sm:text-lg">{contactCopy.description}</p>

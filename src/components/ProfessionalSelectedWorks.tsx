@@ -49,7 +49,7 @@ const ProfessionalSelectedWorks = (): ReactElement => {
   }, [selectedProject]);
 
   return (
-    <section id="portfolio" className="section-padding bg-background">
+    <section id="portfolio" className="min-h-[100dvh] pt-24 md:pt-28 pb-16 overflow-hidden bg-background flex flex-col justify-center">
       <div className="container-custom">
         <div className="flex items-center gap-4 mb-10 md:mb-14">
           <h2 className="type-display-section">Selected Works</h2>

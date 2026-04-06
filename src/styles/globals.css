@@ -167,7 +167,7 @@
 
 @layer components {
   .container-custom {
-    @apply max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 w-full;
+    @apply max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full;
   }
   
   .btn-primary {
@@ -244,7 +244,7 @@
   }
 
   .section-padding {
-    @apply py-16 md:py-24 flex flex-col justify-center relative;
+    @apply min-h-[100dvh] pt-24 md:pt-28 pb-16 overflow-hidden flex flex-col justify-center relative;
   }
 
   .type-eyebrow {

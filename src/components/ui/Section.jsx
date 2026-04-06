@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const Section = ({ id, title, children, className = "" }) => {
   return (
-    <section id={id} className={`section-padding ${className}`}>
+    <section id={id} className={`min-h-[100dvh] pt-24 md:pt-28 pb-16 overflow-hidden flex flex-col justify-center relative ${className}`}>
       <div className="container-custom">
         {title && (
           <motion.h2 

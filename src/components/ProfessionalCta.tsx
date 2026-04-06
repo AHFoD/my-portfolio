@@ -17,7 +17,7 @@ const professionalCtaCopy: ProfessionalCtaCopy = {
 
 const ProfessionalCta = (): ReactElement => {
   return (
-    <section className="section-padding bg-background">
+    <section className="min-h-[100dvh] pt-24 md:pt-28 pb-16 overflow-hidden bg-background flex flex-col justify-center">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
