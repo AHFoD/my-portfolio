@@ -57,8 +57,6 @@ type PersonaPricingAmount = {
   readonly plus?: boolean;
 };
 
-type PersonaPricingMarket = "local" | "international";
-
 type PersonaPricingRates = {
   readonly local: PersonaPricingAmount;
   readonly international: PersonaPricingAmount;
@@ -188,7 +186,7 @@ type PersonaDefinition = {
   readonly music?: PersonaMusicCopy;
 };
 
-const personaConfig = {
+const personaConfig: Record<Persona, PersonaDefinition> = {
   professional: {
     label: "Professional",
     hero: {
@@ -518,6 +516,6 @@ const personaConfig = {
       description: "Weekend drives, espresso pulls, and after-hours UI experiments."
     }
   }
-} satisfies Record<Persona, PersonaDefinition>;
+};
 
 export default personaConfig;
