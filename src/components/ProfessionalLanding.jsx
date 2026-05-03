@@ -1,5 +1,6 @@
 import ProfessionalCta from "./ProfessionalCta";
 import ProfessionalHero from "./ProfessionalHero";
+import ProfessionalPricing from "./ProfessionalPricing";
 import ProfessionalSelectedWorks from "./ProfessionalSelectedWorks";
 import ProfessionalToolkit from "./ProfessionalToolkit";
 import Contact from "./Contact";
@@ -11,6 +12,7 @@ const ProfessionalLanding = () => {
       <ProfessionalHero />
       <ProfessionalToolkit />
       <ProfessionalSelectedWorks />
+      <ProfessionalPricing />
       <ProfessionalCta />
       <Process />
       <Contact />

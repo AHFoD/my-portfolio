@@ -6,6 +6,25 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { persona } = usePersona();
   const footerCopy = personaConfig[persona].footer;
+  const musicCopy = personaConfig[persona].music;
+
+  const quickLinks =
+    persona === "professional"
+      ? [
+          { href: "#home", label: "Home" },
+          { href: "#toolkit", label: "Toolkit" },
+          { href: "#portfolio", label: "Portfolio" },
+          { href: "#pricing", label: "Pricing" },
+          { href: "#process", label: "Process" },
+          { href: "#contact", label: "Contact" },
+        ]
+      : [
+          { href: "#home", label: "Home" },
+          { href: "#interests", label: "Interests" },
+          ...(musicCopy ? [{ href: "#music", label: "Music" }] : []),
+          { href: "#philosophy", label: "Philosophy" },
+          { href: "#contact", label: "Contact" },
+        ];
   
   return (
     <footer className="bg-background py-12 border-t border-border-subtle">
@@ -43,24 +62,13 @@ const Footer = () => {
           >
             <h3 className="text-xl font-bold mb-4 text-foreground">Quick Links</h3>
             <ul className="space-y-2">
-              <li>
-                <a href="#home" className="text-muted hover:text-foreground transition-colors">Home</a>
-              </li>
-              <li>
-                <a href="#about" className="text-muted hover:text-foreground transition-colors">About</a>
-              </li>
-              <li>
-                <a href="#services" className="text-muted hover:text-foreground transition-colors">Services</a>
-              </li>
-              <li>
-                <a href="#portfolio" className="text-muted hover:text-foreground transition-colors">Portfolio</a>
-              </li>
-              <li>
-                <a href="#process" className="text-muted hover:text-foreground transition-colors">Process</a>
-              </li>
-              <li>
-                <a href="#contact" className="text-muted hover:text-foreground transition-colors">Contact</a>
-              </li>
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="text-muted hover:text-foreground transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </motion.div>
           

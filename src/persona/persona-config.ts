@@ -51,6 +51,46 @@ type PersonaServicesCopy = {
   readonly ctaHref: string;
 };
 
+type PersonaPricingAmount = {
+  readonly min: number;
+  readonly max?: number;
+  readonly plus?: boolean;
+};
+
+type PersonaPricingMarket = "local" | "international";
+
+type PersonaPricingRates = {
+  readonly local: PersonaPricingAmount;
+  readonly international: PersonaPricingAmount;
+};
+
+type PersonaPricingTier = {
+  readonly name: string;
+  readonly description: string;
+  readonly rates: PersonaPricingRates;
+  readonly included: readonly string[];
+  readonly excluded?: readonly string[];
+  readonly timeline?: string;
+  readonly revisions?: string;
+  readonly ctaLabel: string;
+};
+
+type PersonaPricingAddOn = {
+  readonly name: string;
+  readonly rates: PersonaPricingRates;
+};
+
+type PersonaPricingCopy = {
+  readonly title: string;
+  readonly description: string;
+  readonly tiers: readonly PersonaPricingTier[];
+  readonly addOns: readonly PersonaPricingAddOn[];
+  readonly paymentTerms: readonly string[];
+  readonly currencyPolicy: string;
+  readonly disclaimer: string;
+  readonly ctaHref: string;
+};
+
 type PersonaPortfolioFilter = {
   readonly label: string;
   readonly value: string;
@@ -140,6 +180,7 @@ type PersonaDefinition = {
   readonly avatar: PersonaAvatar;
   readonly stats: readonly PersonaStat[];
   readonly services: PersonaServicesCopy;
+  readonly pricing?: PersonaPricingCopy;
   readonly portfolio: PersonaPortfolioCopy;
   readonly process: PersonaProcessCopy;
   readonly contact: PersonaContactCopy;
@@ -184,6 +225,97 @@ const personaConfig = {
       ],
       ctaText: "Interested in working together? Let's discuss your project.",
       ctaButtonLabel: "Get in Touch",
+      ctaHref: "#contact"
+    },
+    pricing: {
+      title: "Pricing",
+      description: "Clear starting points by project type. Final quotes are tailored to the exact scope, timeline, and integrations.",
+      tiers: [
+        {
+          name: "Landing Page (standard)",
+          description: "Client supplies an approved design (Figma / XD / PDF). I build and deploy it.",
+          rates: {
+            local: { min: 1800, max: 3500 },
+            international: { min: 500, max: 1000 },
+          },
+          included: [
+            "Up to 5 sections (Hero, About, Features, Testimonials, CTA)",
+            "Fully responsive — mobile + desktop",
+            "Contact form with email notification",
+            "Basic SEO setup (meta tags, Open Graph tags)",
+            "Deployment to client's hosting & domain",
+            "1 round of revisions (consolidated feedback, submitted at once)"
+          ],
+          excluded: [
+            "Design work — client must supply approved Figma/XD file before work begins",
+            "Copywriting or content creation",
+            "Domain & hosting fees",
+            "Additional revision rounds (chargeable — see Add-Ons)"
+          ],
+          timeline: "5–7 working days from design handoff",
+          revisions: "1 revision round",
+          ctaLabel: "Request a quote",
+        },
+        {
+          name: "Custom Webpage (with Payment Gateway)",
+          description: "A real web application — auth, payments, database, and a basic admin panel.",
+          rates: {
+            local: { min: 6000, max: 15000 },
+            international: { min: 1800, max: 4500 },
+          },
+          included: [
+            "Up to 8 pages / routes",
+            "User authentication (register, login, password reset)",
+            "Payment gateway integration (Stripe, Billplz, ToyyibPay, or equivalent)",
+            "Database design and setup",
+            "Basic admin panel (view orders, view users)",
+            "Deployment + basic CI/CD pipeline setup",
+            "2 rounds of revisions (each round = one consolidated batch of feedback)"
+          ],
+          excluded: [
+            "UI/UX design — client provides approved designs before development starts",
+            "Third-party API integrations beyond the agreed payment gateway (quoted separately)",
+            "Ongoing maintenance (available as a monthly retainer — see Add-Ons)",
+            "Content population / data entry"
+          ],
+          timeline: "3–6 weeks from design handoff and deposit receipt",
+          revisions: "2 revision rounds",
+          ctaLabel: "Get started",
+        },
+        {
+          name: "Custom Solution (starting from)",
+          description: "Complex business systems: inventory, booking, SaaS platforms, internal dashboards, APIs, automation.",
+          rates: {
+            local: { min: 18000, plus: true },
+            international: { min: 5000, plus: true },
+          },
+          included: [
+            "Phase 1 — Discovery & Scoping (paid): requirements doc, system design, timeline & milestones",
+            "Phase 2 — Development: split into 2–3 milestones, each invoiced on delivery",
+            "Phase 3 — UAT & Deployment: final payment released on client sign-off"
+          ],
+          timeline: "Milestone-based",
+          ctaLabel: "Discuss your scope",
+        }
+      ],
+      addOns: [
+        { name: "Monthly maintenance retainer", rates: { local: { min: 500, max: 1200 }, international: { min: 150, max: 350 } } },
+        { name: "Extra revision round", rates: { local: { min: 300 }, international: { min: 80 } } },
+        { name: "UI/UX design (per page)", rates: { local: { min: 400, max: 800 }, international: { min: 120, max: 250 } } },
+        { name: "Speed & SEO audit", rates: { local: { min: 600 }, international: { min: 180 } } },
+        { name: "Third-party API integration (per API)", rates: { local: { min: 500, max: 2000, plus: true }, international: { min: 150, max: 600, plus: true } } },
+        { name: "Discovery & Scoping session (custom solutions)", rates: { local: { min: 800 }, international: { min: 250 } } }
+      ],
+      paymentTerms: [
+        "50% deposit required before any work begins — no exceptions",
+        "Remaining 50% due upon delivery / before final files are handed over",
+        "Milestone projects: each milestone invoiced and paid before the next begins",
+        "Accepted methods: bank transfer, PayNow, Wise, PayPal (fees may apply)"
+      ],
+      currencyPolicy:
+        "Quote in MYR for local (Malaysian) clients. Quote in USD for regional/international clients. Never show MYR rates to international clients — maintain separate pricing.",
+      disclaimer:
+        "Rates are indicative. Integrations, complex UI, content volume, and custom features can change the final quote.",
       ctaHref: "#contact"
     },
     portfolio: {
